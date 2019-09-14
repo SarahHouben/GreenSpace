@@ -80,6 +80,9 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
 
+const googleMapsClient = require('@google/maps').createClient({
+  key: '555387356312-4ue339scq6nn03vtk4e90jbnlfdkv0m6.apps.googleusercontent.com'
+});
 
 const index = require('./routes/index');
 app.use('/', index);
