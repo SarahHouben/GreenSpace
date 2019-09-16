@@ -1,16 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const greenSpaceSchema = new Schema({
-  name: String,
-  creator: [{
+  name: {
+    type: String,
+    required: true
+  },
+  creator: {
     type: Schema.Types.ObjectId,
     ref: 'User'
-  }],
+  },
   location: {
     lat: Number,
     lng: Number
   },
-  tags: {
+  tags: [{
     type: String,
     enum: [
       "Park",
@@ -31,7 +34,7 @@ const greenSpaceSchema = new Schema({
       "Playground",
       "Wheelchair-accessible"
     ]
-  }
+  }]
 }, {
   timestamps: {
     createdAt: "created_at",
