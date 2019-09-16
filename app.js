@@ -167,5 +167,8 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
+const search = require('./routes/search');
+app.use('/search', search)
+
 
 module.exports = app;
