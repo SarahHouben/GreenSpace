@@ -7,9 +7,11 @@ router.get('/', (req, res, next) => {
 });
 
 
-/* GET create GreenSpace page */
+/*Create GreenSpace page */
 router.get('/newGreenSpace', (req, res, next) => {
   res.render('newGreenSpace');
 });
+
+
 
 module.exports = router;

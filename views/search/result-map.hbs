@@ -22,18 +22,18 @@
     console.log('here', typeof lat)
     var map = new google.maps.Map(document.getElementById("map"), {
       zoom: 4,
-      center: { lat: {{ lat }}, lng: {{ lng }} }
+      center: { lat: {{ lat }}, lng: { { lng } } }
     });
   // The marker, positioned at Uluru
 
 
   var marker = new google.maps.Marker({
-    position: { lat: {{ lat }}, lng:  {{ lng }} },
+    position: { lat: {{ lat }}, lng: { { lng } } },
   map: map
     });
 
   }
- 
-  
+
+
 
 </script>

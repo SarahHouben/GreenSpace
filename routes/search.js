@@ -8,15 +8,26 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  const { lat, lng } = req.body;
+  const {
+    lat,
+    lng
+  } = req.body;
 
   res.render("./search/result-map", {
     lat,
     lng,
-    array: JSON.stringify([
-      { lat: 10, lng: 20 },
-      { lat: 20, lng: 20 },
-      { lat: 30, lng: 20 }
+    array: JSON.stringify([{
+        lat: 10,
+        lng: 20
+      },
+      {
+        lat: 20,
+        lng: 20
+      },
+      {
+        lat: 30,
+        lng: 20
+      }
     ])
   });
 });
