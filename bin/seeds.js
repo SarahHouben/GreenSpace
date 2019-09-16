@@ -20,13 +20,20 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
+
+// ####### #####################  SEEDS USERS  #################################################
+
 let users = [{
-    username: "alice",
+    username: "Sarah",
     password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
+    email: "sarahhouben@outlook.com",
+    role: "user"
   },
   {
-    username: "bob",
+    username: "Marko",
     password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
+    email: "sarahhouben@outlook.com",
+    role: "admin"
   }
 ]
 
@@ -46,3 +53,38 @@ User.deleteMany()
     mongoose.disconnect()
     throw err
   })
+
+
+
+// ####### #####################   SEEDS GREENSPACES    #################################################
+
+// const greenspaces = [{
+//     name: "Treptower Park",
+//     creator: "ID SARAH#####################",
+//     location: {
+//       lat: 52.5021434,
+//       lng: 13.5047152
+//     },
+//     tags: ["Park", "Trees", "Lawn"]
+//   },
+//   {
+//     name: "Elefantenspielplatz",
+//     creator: "ID SARAH#####################",
+//     location: {
+//       lat: 52.5021503,
+//       lng: 13.4346768
+//     },
+//     tags: ["Playground", "Trees"]
+//   }
+// ]
+
+
+// Greenspace.create(greenspaces).then(data => {
+//   console.log(`Success! Imported ${data.length} greenspaces!`);
+//   mongoose.connection.close();
+// });
+
+
+// ####### #####################   SEEDS COMMENTS  #################################################
+
+// ####### #####################   SEEDS IMAGES  #################################################

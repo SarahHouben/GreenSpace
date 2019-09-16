@@ -5,7 +5,16 @@ const userSchema = new Schema({
   username: String,
   password: String,
   email: String,
-  picture: String
+  favourites: Array,
+  image: {
+    type: String,
+    default: "/public/images/default_user_image.png"
+  },
+  role: {
+    type: String,
+    enum: ["user", "admin"],
+    default: "user"
+  }
 }, {
   timestamps: {
     createdAt: 'created_at',
