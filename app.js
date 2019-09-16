@@ -13,6 +13,8 @@ const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
 const passport = require("passport");
+const User = require("./models/User");
+
 
 
 mongoose
@@ -38,6 +40,24 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
+
+
+// we serialize only the "_id" field of the user to keep the information stored minimum
+// passport.serializeUser((user, done) => {
+//   done(null, user._id);
+// });
+
+// //when we need the information for the user, the deserializeUser function is 
+// //called with the id that we previously serialized to fetch the user from the database
+// passport.deserializeUser((id, done) => {
+//   User.findById(id)
+//     .then(dbUser => {
+//       done(null, dbUser);
+//     })
+//     .catch(err => {
+//       done(err);
+//     });
+// });
 
 // Express View engine setup
 
@@ -156,6 +176,9 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
 
+// app.use(passport.initialize());
+// app.use(passport.session());
+
 const googleMapsClient = require('@google/maps').createClient({
   key: process.env.GOOGLE_API_KEY
 });
@@ -170,5 +193,7 @@ app.use('/auth', authRoutes);
 const search = require('./routes/search');
 app.use('/search', search)
 
+const user = require('./routes/userprofile');
+app.use('/user', user)
 
 module.exports = app;

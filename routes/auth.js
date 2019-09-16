@@ -51,6 +51,7 @@ router.get("/twitter/callback", passport.authenticate("twitter", {
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
+  const email = req.body.email;
 
   // Check for min. password length
   if (password.length < 8) {
@@ -64,6 +65,14 @@ router.post("/signup", (req, res, next) => {
   if (username === "") {
     res.render("auth/signup", {
       message: "Please enter a username."
+    });
+    return;
+  }
+
+  //Check that username is given
+  if (email === "") {
+    res.render("auth/signup", {
+      message: "Please enter an email address."
     });
     return;
   }
