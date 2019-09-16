@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
   comment: String,
+  rating: Number,
   creator: String
 }, {
   timestamps: {
