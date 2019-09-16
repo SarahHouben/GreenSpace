@@ -1,18 +1,35 @@
-
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
+{{!-- <form action='/search' method="post">
+
+  <label for="lat">Lat:</label>
+  <input type="number" step="any" name="lat" id="lat">
+
+  <label for="lng">Lng</label>
+  <input type="number" step="any" name="lng" id="lng">
+
+  <button type="submit">render map</button>
+
+</form> --}}
+
+
 <form action='/search' method="post">
+  <label for="address">Address:</label>
+  <input type="address" name="address" id="address">
+  {{!-- <label for="tag">Tags:</label>
+  <input type="tag" name="tag" id="tag"> --}}
 
-<label for="lat">Lat:</label>
-<input type="number" step="any" name="lat" id="lat">
-
-<label for="lng">Lng</label>
-<input type="number" step="any" name="lng" id="lng">
-
-<button type="submit">render map</button>
-
+  <button><a href="/search/address">Search for location</a></button>
 </form>
 
-<h2><a href="/search">Search</a></h2>
-<h2><a href="/search/:id">Favorites</a></h2>
+
+
+<form action='/search' method="post">
+  <button><a href="/search/location">Current location</a></button>
+</form>
+
+
+<form action='/search' method="post">
+  <button><a href="/search/favourites/:id">Favorites</a></button>
+</form>
