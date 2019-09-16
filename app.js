@@ -163,8 +163,6 @@ const googleMapsClient = require('@google/maps').createClient({
 const index = require('./routes/index');
 app.use('/', index);
 
-const createGreenspace = require('./routes/createGreenspace');
-app.use('/', createGreenspace);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);

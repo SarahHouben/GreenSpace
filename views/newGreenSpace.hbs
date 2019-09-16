@@ -1,12 +1,14 @@
 <h1>Post your GreenSpace!</h1>
 
-<form action="/greenspace" method="POST">
+<form action="/greenspace/:_id" method="POST">
 
   <label for="name">Name of your GreenSpace: </label>
   <input type="text" name="name" id="name">
 
   <label for="location">Its location: </label>
+  <label type="text" for="lat">Latitude</label>
   <input type="number" name="lat" id="lat">
+  <label type="text" for="lng">Longitude</label>
   <input type="number" name="lng" id="lng">
 
   <legend>What applies to your GreenSpace?</legend>
@@ -79,7 +81,7 @@
     <label for="Wheelchair-accessible">Wheelchair-accessible</label>
   </div>
 
-  {{!-- IMAGE UPLOAD --}}
+  {{!-- ENABLE IMAGE UPLOAD --}}
 
 
   <button type="submit">Submit your GreenSpace!</button>
