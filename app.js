@@ -12,6 +12,7 @@ const path = require('path');
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
+const passport = require("passport");
 
 
 mongoose
@@ -68,6 +69,81 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 app.locals.title = 'Greenspace';
 
 
+//######################################### INSTAGRAM STRATEGY ########################################
+
+const InstagramStrategy = require("passport-instagram").Strategy;
+
+passport.use(
+  new InstagramStrategy({
+      clientID: process.env.INSTAGRAM_CLIENTID,
+      clientSecret: process.env.INSTAGRAM_CLIENTSECRET,
+      callbackURL: "http://localhost:3000/auth/instagram/callback"
+    },
+    (accessToken, refreshToken, profile, done) => {
+      //find a user with a profile.id as instagramID or create one
+      //console.log(profile);
+      User.findOne({
+          instagramId: profile.id
+        }).then(found => {
+          //USER IS FOUND, meaning user with that Instagram id already exists. Then user is logged in
+          if (found !== null) {
+            done(null, found)
+            //User doesn't yet exist
+          } else {
+            return User.create({
+              instagramId: profile.id
+            }).then(dbUser => {
+              done(null, dbUser);
+            });
+          }
+        })
+        .catch(err => {
+          done(err);
+        });
+    }
+  )
+);
+
+
+//######################################### TWITTER STRATEGY ########################################
+
+const TwitterStrategy = require("passport-twitter").Strategy;
+
+passport.use(
+  new TwitterStrategy({
+      consumerKey: process.env.TWITTER_CLIENTID,
+      consumerSecret: process.env.TWITTER_CLIENTSECRET,
+      callbackURL: "http://localhost:3000/auth/twitter/callback"
+    },
+    (accessToken, refreshToken, profile, done) => {
+      //find a user with a profile.id as TwitterID or create one
+      //console.log(profile);
+      User.findOne({
+          twitterId: profile.id
+        }).then(found => {
+          //USER IS FOUND, meaning user with that Instagram id already exists. Then user is logged in
+          if (found !== null) {
+            done(null, found)
+            //User doesn't yet exist
+          } else {
+            return User.create({
+              twitterId: profile.id
+            }).then(dbUser => {
+              done(null, dbUser);
+            });
+          }
+        })
+        .catch(err => {
+          done(err);
+        });
+    }
+  )
+);
+
+
+//######################################### GENERAL FOR PASSPORT  ########################################
+
+
 // Enable authentication using session + passport
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -86,6 +162,9 @@ const googleMapsClient = require('@google/maps').createClient({
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const createGreenspace = require('./routes/createGreenspace');
+app.use('/', createGreenspace);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);

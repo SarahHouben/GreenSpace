@@ -23,7 +23,9 @@
     "morgan": "^1.9.0",
     "node-sass-middleware": "^0.11.0",
     "passport": "^0.4.0",
+    "passport-instagram": "^1.0.0",
     "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {

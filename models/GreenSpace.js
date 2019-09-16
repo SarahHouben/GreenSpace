@@ -13,6 +13,10 @@ const greenSpaceSchema = new Schema({
     lat: Number,
     lng: Number
   },
+  image: {
+    type: String,
+    default: "/public/images/default_user_image.png"
+  },
   tags: [{
     type: String,
     enum: [
@@ -21,7 +25,7 @@ const greenSpaceSchema = new Schema({
       "Bench",
       "Steps",
       "Nature reserve",
-      "Tiny",
+      "Tiny space",
       "Water",
       "Trees",
       "Lawn",

@@ -9,7 +9,9 @@ const bcryptSalt = 10;
 
 
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+  res.render("auth/login", {
+    "message": req.flash("error")
+  });
 });
 
 router.post("/login", passport.authenticate("local", {
@@ -23,17 +25,57 @@ router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
+//######################################### ROUTE FOR INSTAGRAM LOGIN /SIGNUP STRATEGY ########################################
+
+router.get("/instagram", passport.authenticate("instagram"));
+
+router.get("/instagram/callback", passport.authenticate("instagram", {
+  successRedirect: "/",
+  failureRedirect: "/auth/login"
+}));
+
+//######################################### ROUTE FOR TWITTER LOGIN /SIGNUP STRATEGY ########################################
+
+router.get("/twitter", passport.authenticate("twitter"));
+
+router.get("/twitter/callback", passport.authenticate("twitter", {
+  successRedirect: "/",
+  failureRedirect: "/auth/login"
+}));
+
+//######################################### ROUTE FOR LOCAL SIGNUP STRATEGY ########################################
+
+
+
+
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
-  if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+
+  // Check for min. password length
+  if (password.length < 8) {
+    res.render("auth/signup", {
+      message: "Your password must have at least 6 characters."
+    });
     return;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
+  //Check that username is given
+  if (username === "") {
+    res.render("auth/signup", {
+      message: "Please enter a username."
+    });
+    return;
+  }
+
+
+  User.findOne({
+    username
+  }, "username", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.render("auth/signup", {
+        message: "This GreenSpace-user already exists"
+      });
       return;
     }
 
@@ -46,12 +88,14 @@ router.post("/signup", (req, res, next) => {
     });
 
     newUser.save()
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
+      .then(() => {
+        res.redirect("/");
+      })
+      .catch(err => {
+        res.render("auth/signup", {
+          message: "Something went wrong"
+        });
+      })
   });
 });
 
