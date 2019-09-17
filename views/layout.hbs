@@ -17,11 +17,25 @@
   <nav>
     <a href="/"> <img id="greenspace-logo" src="images/greenspace_logo.png" alt="GreenSpace Logo"> </a>
 
+    {{!-- <div>
+      {{#with user}}
+      <p>this is the {{username}}</p>
+
+      <a href="/user/{{_id}}">Profile</a>
+      <a href="/auth/logout">Logout</a>
+      {{else}}
+      <a href="/auth/login">Login</a>
+      <a href="/auth/signup">Signup</a>
+      {{/with}}
+    </div> --}}
+
     <div>
+
       {{#unless user}}
       <a href="/auth/login">Login</a>
       <a href="/auth/signup">Signup</a>
       {{else}}
+      <p>this is the {{user.username}}</p>
       <a href="/user/{{user._id}}">Profile</a>
       <a href="/auth/logout">Logout</a>
       {{/unless}}

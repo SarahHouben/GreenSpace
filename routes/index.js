@@ -20,7 +20,10 @@ const loginCheck = () => {
 
 /* GET home page */
 router.get('/', loginCheck(), (req, res, next) => {
-  res.render('index');
+  console.log(req.user)
+  res.render('index', {
+    user: req.user
+  });
 });
 
 
