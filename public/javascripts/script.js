@@ -7,11 +7,14 @@ document.addEventListener(
 );
 
 
-//Cloudinary Upload Widget
+// //Cloudinary Upload Widget for User profile image
 
 var myWidget = cloudinary.createUploadWidget({
   cloudName: 'dmlqhwwfc',
-  uploadPreset: 'umqopfpp'
+  uploadPreset: 'umqopfpp',
+  // cloudName: process.env.CLOUDINARY_CLOUDNAME,
+  // uploadPreset: process.env.CLOUDINARY_UPLOADPRESET,
+
 }, (error, result) => {
   if (!error && result && result.event === "success") {
     console.log('Done! Here is the image info: ', result.info);
