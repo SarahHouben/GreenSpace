@@ -5,11 +5,42 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-#greenspace-logo {
-  height: 30px; }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 10vw;
+  background-image: linear-gradient(#C2D66F, #619430);
+  height: 90px; }
+  .navbar #greenspace-logo {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-left: 5vw;
+    -webkit-filter: drop-shadow(5px 5px 5px #504a39);
+    filter: drop-shadow(5px 5px 5px #504a39); }
+  .navbar a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0a470a; }
+  .navbar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 45vw;
+    list-style: none; }
 
 .profile-image {
   height: 50px;
   width: 50px; }
+
+.cloudinary-button {
+  background-color: #6E9F2D !important; }
+
+.popup-box {
+  color: red !important; }
 
 /*# sourceMappingURL=style.css.map */

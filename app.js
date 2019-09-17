@@ -14,7 +14,7 @@ const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
 const passport = require("passport");
 const User = require("./models/User");
-
+const GreenSpace = require("./models/GreenSpace");
 
 
 mongoose
@@ -86,7 +86,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 
 
 // default value for title local
-app.locals.title = 'Greenspace';
+app.locals.title = 'GreenSpace';
 
 
 //######################################### INSTAGRAM STRATEGY ########################################
@@ -176,16 +176,17 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
 
-// app.use(passport.initialize());
-// app.use(passport.session());
 
 const googleMapsClient = require('@google/maps').createClient({
   key: process.env.GOOGLE_API_KEY
 });
 
+
+
+//######################################### ROUTES  ########################################
+
 const index = require('./routes/index');
 app.use('/', index);
-
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
@@ -195,5 +196,10 @@ app.use('/search', search)
 
 const user = require('./routes/userprofile');
 app.use('/user', user)
+
+const greenspace = require('./routes/greenspace');
+app.use('/greenspace', greenspace)
+
+
 
 module.exports = app;

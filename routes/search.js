@@ -9,13 +9,15 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  const { lat, lng } = req.body;
+  const {
+    lat,
+    lng
+  } = req.body;
 
   res.render("./search/result-map", {
     lat,
     lng,
-    array: JSON.stringify([
-      {
+    array: JSON.stringify([{
         lat: 10,
         lng: 20
       },
