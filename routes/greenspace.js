@@ -27,33 +27,38 @@ router.get('/new', loginCheck(), (req, res, next) => {
 
 //####  Create New GreenSpace   #### //
 
-// router.post('/greenspaces')
+router.post('/new', (req, res, next) => {
+  console.log(req.body.tags)
+  const {
+    name,
+    creator,
+    lat,
+    lng,
+    tags
+  } = req.body;
 
 
+  GreenSpace.create({
+      name,
+      creator: req.user._id,
+      location: {
+        lat,
+        lng
+      },
+      tags
+    })
+    .then(greenspace => {
+      console.log(`Success! ${name} was added to the database.`);
+      // res.redirect(`/greenspace/new`);
+      res.redirect(`/user/${req.user._id}`);
+      // res.redirect(`/greenspace/${req.greenspace._id}`);
+    })
+    .catch(err => {
+      console.log(err);
+      next();
+    });
+})
 
-
-// router.post('/movies', (req, res, next) => {
-
-//   const {
-//       title,
-//       genre,
-//       plot
-//   } = req.body;
-
-//   Movie.create({
-//           title,
-//           genre,
-//           plot
-//       })
-//       .then(celebrity => {
-//           console.log(`Success! ${title} was added to the database.`);
-//           res.redirect(`/movies`);
-//       })
-//       .catch(err => {
-//           console.log(err);
-//           next();
-//       })
-// })
 
 
 module.exports = router;

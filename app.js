@@ -86,7 +86,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 
 
 // default value for title local
-app.locals.title = 'Greenspace';
+app.locals.title = 'GreenSpace';
 
 
 //######################################### INSTAGRAM STRATEGY ########################################

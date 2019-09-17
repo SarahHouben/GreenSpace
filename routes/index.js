@@ -26,47 +26,6 @@ router.get('/', (req, res, next) => {
   });
 });
 
-// //####//####//####//####//####  GreenSpace   //####//####//####//####//####
-
-// /*Create GreenSpace page */
-// router.get('/newgreenspace', loginCheck(), (req, res, next) => {
-//   res.render('newGreenSpace', {
-//     user: req.user
-//   });
-// });
-
-
-// //####  Create New GreenSpace   #### //
-
-// router.post('/greenspaces')
-
-
-
-
-// router.post('/movies', (req, res, next) => {
-
-//   const {
-//       title,
-//       genre,
-//       plot
-//   } = req.body;
-
-//   Movie.create({
-//           title,
-//           genre,
-//           plot
-//       })
-//       .then(celebrity => {
-//           console.log(`Success! ${title} was added to the database.`);
-//           res.redirect(`/movies`);
-//       })
-//       .catch(err => {
-//           console.log(err);
-//           next();
-//       })
-// })
-
-
 
 
 module.exports = router;

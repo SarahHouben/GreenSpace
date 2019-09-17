@@ -1,87 +1,87 @@
 <h1>Post your GreenSpace!</h1>
 
-<form action="/greenspace/:_id" method="POST">
+<form action="/greenspace/new" method="POST">
 
   <label for="name">Name of your GreenSpace: </label>
   <input type="text" name="name" id="name">
 
   <label for="location">Its location: </label>
   <label type="text" for="lat">Latitude</label>
-  <input type="number" name="lat" id="lat">
+  <input type="text" name="lat" id="lat">
   <label type="text" for="lng">Longitude</label>
-  <input type="number" name="lng" id="lng">
+  <input type="text" name="lng" id="lng">
 
   <legend>What applies to your GreenSpace?</legend>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Park">
+    <input type="checkbox" name="tags" id="tags" value="Park">
     <label for="Park">Park</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Garden">
+    <input type="checkbox" name="tags" id="tags" value="Garden">
     <label for="Garden">Garden</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Bench">
+    <input type="checkbox" name="tags" id="tags" value="Bench">
     <label for="Bench">Bench</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Steps">
+    <input type="checkbox" name="tags" id="tags" value="Steps">
     <label for="Steps">Steps</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Nature reserve">
+    <input type="checkbox" name="tags" id="tags" value="Nature reserve">
     <label for="Nature reserve">Nature reserve</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Tiny space">
+    <input type="checkbox" name="tags" id="tags" value="Tiny space">
     <label for="Tiny space">Tiny space</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Water">
+    <input type="checkbox" name="tags" id="tags" value="Water">
     <label for="Water">Water</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Trees">
+    <input type="checkbox" name="tags" id="tags" value="Trees">
     <label for="Trees">Trees</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Lawn">
+    <input type="checkbox" name="tags" id="tags" value="Lawn">
     <label for="Lawn">Lawn</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Food place">
+    <input type="checkbox" name="tags" id="tags" value="Food place">
     <label for="Food place">Food place</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Quiet">
+    <input type="checkbox" name="tags" id="tags" value="Quiet">
     <label for="Quiet">Quiet</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Loud">
+    <input type="checkbox" name="tags" id="tags" value="Loud">
     <label for="Loud">Loud</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Sports">
+    <input type="checkbox" name="tags" id="tags" value="Sports">
     <label for="Sports">Sports</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Barbeque">
+    <input type="checkbox" name="tags" id="tags" value="Barbeque">
     <label for="Barbeque">Barbeque</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Picknick">
+    <input type="checkbox" name="tags" id="tags" value="Picknick">
     <label for="Picknick">Picknick</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Playground">
+    <input type="checkbox" name="tags" id="tags" value="Playground">
     <label for="Playground">Playground</label>
   </div>
   <div>
-    <input type="checkbox" name="tag" id="tag" value="Wheelchair-accessible">
+    <input type="checkbox" name="tags" id="tags" value="Wheelchair-accessible">
     <label for="Wheelchair-accessible">Wheelchair-accessible</label>
   </div>
 
-  {{!-- ENABLE IMAGE UPLOAD --}}
+
 
 
   <button type="submit">Submit your GreenSpace!</button>
