@@ -8,15 +8,13 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  const {
-    lat,
-    lng
-  } = req.body;
+  const { lat, lng } = req.body;
 
   res.render("./search/result-map", {
     lat,
     lng,
-    array: JSON.stringify([{
+    array: JSON.stringify([
+      {
         lat: 10,
         lng: 20
       },
@@ -30,6 +28,17 @@ router.post("/", (req, res, next) => {
       }
     ])
   });
+});
+
+router.get("/location", (req, res, next) => {
+  res.render("./search/location");
+});
+
+router.post("/address", (req, res, next) => {
+  const {address} = req.body;
+
+  console.log("req.body.address" , address)
+  res.render("./search/address");
 });
 
 module.exports = router;
