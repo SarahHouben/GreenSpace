@@ -29,7 +29,7 @@ router.get('/new', loginCheck(), (req, res, next) => {
 //####  Create New GreenSpace   #### //
 
 router.post('/new', (req, res, next) => {
-  console.log(req.body.tags)
+  console.log(req.body)
   const {
     name,
     creator,
