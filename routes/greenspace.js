@@ -51,6 +51,7 @@ router.post('/new', (req, res, next) => {
   if (tags === undefined) {
     // res.json({message: "Please enter a name for your GreenSpace"})
     res.render("newGreenSpace", {
+      user: req.user,
       message: "Please select at least one tag for your GreenSpace"
     });
     return;
