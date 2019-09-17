@@ -100,11 +100,13 @@
 
 
 
-  <button type="submit">Submit your GreenSpace!</button>
+  <button id="form-button" onclick="formCheck(event)">Submit your GreenSpace!</button>
 
 </form>
 
 
-{{#if message }}
-<div class="error-message">{{ message }}</div>
-{{/if}}
+{{!-- {{#if message }}
+<div class="error-message" style="">{{ message }}</div>
+{{/if}} --}}
+
+<div class="form-error"></div>

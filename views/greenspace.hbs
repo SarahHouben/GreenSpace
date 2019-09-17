@@ -1,1 +1,20 @@
-<h1>this is the view for each greenspace</h1>
+<h1>Welcome to the GreenSpace {{greenspace.name}} </h1>
+{{!-- <h1>Welcome to the GreenSpace {{greenspace.greenspacename}} </h1> --}}
+
+
+
+
+
+
+
+<button><a href="/">Search for another GreenSpace</a></button>
+
+{{#with user}}
+
+<form action='/search' method="post">
+  <button><a href="/search/favourites/:id">Favorites</a></button>
+</form>
+
+<button><a href="/greenspace/new">Add another GreenSpace</a></button>
+
+{{/with}}

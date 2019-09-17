@@ -66,3 +66,25 @@ if (uploadButton) {
     myWidget.open()
   }, false);
 }
+
+
+
+//   ####### CHECK IF FORM FOR NEW GREENSPACE IS FILLED IN #######
+
+const formCheck = (event) => {
+  let formIDs = ["name", "lat", "lng"]
+
+  let tagArray = Array.from(document.querySelectorAll("#tags")).map(tag => tag.checked)
+  console.log(tagArray)
+  formIDs.forEach(ids => {
+    if (document.getElementById(ids).value === "" || document.getElementById(ids).value === undefined) {
+      event.preventDefault();
+      document.querySelector(".form-error").innerText = "Please fill out all the info"
+    } else if (!tagArray.includes(true)) {
+      event.preventDefault();
+      document.querySelector(".form-error").innerText = "Please click at least one tag out all the info"
+    } else {
+      document.getElementById("form-button").setAttribute = ("type", "submit")
+    }
+  })
+}
