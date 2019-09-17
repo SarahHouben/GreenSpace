@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const GreenSpace = require("../models/GreenSpace");
 const User = require("../models/User");
+const axios = require('axios');
 
 
 router.get("/", (req, res, next) => {
@@ -30,7 +31,6 @@ router.post("/", (req, res, next) => {
     ])
   });
 });
-
 router.get("/location", (req, res, next) => {
   res.render("./search/location");
 });
@@ -38,10 +38,8 @@ router.get("/location", (req, res, next) => {
 router.post("/address", (req, res, next) => {
   const {address} = req.body;
  
-  axios.post(`"https://maps.googleapis.com/maps/api/geocode/json?address="${address}"berlin&key=AIzaSyDYLwxbUeRyQSlAjR9qLXh3pnr4TFCAIW0"`, {data})
-
-
-  console.log("req.body.address" , address ,data)
+ console.log(axios.post(`"https://maps.googleapis.com/maps/api/geocode/json?address="${address}"berlin&key=AIzaSyDYLwxbUeRyQSlAjR9qLXh3pnr4TFCAIW0"`))
+  console.log("req.body.address" )
   res.render("./search/address");
 });
 
