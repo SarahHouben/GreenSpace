@@ -19,8 +19,7 @@ var myWidget = cloudinary.createUploadWidget({
     // we send the secure url
     //import axios
     let profileImage = result.info.secure_url
-    // axios.post("/user/:userId/profile-image", {
-    axios.post("/user/5d7fbf04c8d199827b69ae68/profile-image", {
+    axios.post("/user/:userId/profile-image", {
       profileImage
     })
   }

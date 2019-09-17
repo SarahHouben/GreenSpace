@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 
-//PASSPORT METHOD isAuthenticated is used here as well!
+//PASSPORT METHOD
 const loginCheck = () => {
   return (req, res, next) => {
     if (req.isAuthenticated()) {

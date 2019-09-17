@@ -1,7 +1,8 @@
 <h1>Welcome back {{user.username}} </h1>
 
 <button id="upload_widget" class="cloudinary-button">Change profile photo</button>
-<img src="" alt="">
+<img class="profile-image" src="{{user.image}}" alt="Profile Image">
+<div>{{user.image}}</div>
 
 <p> You have already added //NUMBER OF ADDED GREENSPACES. Length of greenspace array with their id// GreenSpaces.</p>
 <button>Add another GreenSpace</button>

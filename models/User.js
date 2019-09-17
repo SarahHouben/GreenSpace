@@ -8,7 +8,8 @@ const userSchema = new Schema({
   favourites: Array,
   image: {
     type: String,
-    default: "/public/images/default_user_image.png"
+    default: "https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568703809/GreenSpace/default_user_image_gubmhl.png"
+    // default: "/public/images/default_user_image.png"
   },
   role: {
     type: String,
