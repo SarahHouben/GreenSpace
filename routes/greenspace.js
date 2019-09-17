@@ -20,7 +20,8 @@ const loginCheck = () => {
 /*Get "Create New GreenSpace" page */
 router.get('/new', loginCheck(), (req, res, next) => {
   res.render('newGreenSpace', {
-    user: req.user
+    user: req.user,
+    // message: "Please enter a name for your GreenSpace"
   });
 });
 
@@ -36,6 +37,24 @@ router.post('/new', (req, res, next) => {
     lng,
     tags
   } = req.body;
+
+  if (name === "" || lat === "" || lng === "") {
+    // res.json({message: "Please enter a name for your GreenSpace"})
+    res.render("newGreenSpace", {
+      user: req.user,
+      message: "Please enter name and location for your GreenSpace"
+    });
+    return;
+  }
+
+
+  if (tags === undefined) {
+    // res.json({message: "Please enter a name for your GreenSpace"})
+    res.render("newGreenSpace", {
+      message: "Please select at least one tag for your GreenSpace"
+    });
+    return;
+  }
 
 
   GreenSpace.create({

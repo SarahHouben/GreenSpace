@@ -20,7 +20,10 @@
     <button><a href="/search/location">Current location</a></button>
   </form>
 
+  {{#with user}}
   <form action='/search' method="post">
     <button><a href="/search/favourites/:id">Favorites</a></button>
   </form>
+  {{/with}}
+
 </body>
