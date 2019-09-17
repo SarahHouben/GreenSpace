@@ -18,19 +18,6 @@ const loginCheck = () => {
 
 
 
-// router.get('/:userId', (req, res, next) => {
-//   console.log(' profile page loaded')
-//   const userId = req.params.userId;
-
-//   User.findById(req.user._id).then(user => {
-//     res.render('user', {
-//       user: user
-//     });
-//   })
-// });
-
-
-
 
 /*Get "Create New GreenSpace" page */
 router.get('/new', loginCheck(), (req, res, next) => {
@@ -39,7 +26,6 @@ router.get('/new', loginCheck(), (req, res, next) => {
     // message: "Please enter a name for your GreenSpace"
   });
 });
-
 
 
 //####  Create New GreenSpace   #### //

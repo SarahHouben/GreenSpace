@@ -1,51 +1,5 @@
 <h1>Post your GreenSpace!</h1>
 
-<<<<<<< HEAD
-
-
-<style>
-    #map {
-      height: 100%;
-    }
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }	
-  </style>
-</head>
-<body>
-  <div id="map"></div>
-  <script>
-    let map;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 52.520008, lng: 13.404954},
-        zoom: 14
-      });
-      var image = 'https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png'
-      var marker = new google.maps.Marker({
-    position: {lat: 52.520008, lng: 13.404954},
-    map: map,
-    draggable:true,
-    icon: image,
-    title:"Drag me!"
-    
-});
-    
-    google.maps.event.addListener(marker, 'dragend', function (event) {
-    document.getElementById("lat").value = this.getPosition().lat();
-    document.getElementById("lng").value = this.getPosition().lng();
-});}
-    
-  </script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYLwxbUeRyQSlAjR9qLXh3pnr4TFCAIW0&callback=initMap">
-  </script>
-
-<form action="/greenspace/new" method="POST">
-=======
->>>>>>> individual-greenspace
 
 
 <style>
@@ -99,14 +53,7 @@
       <input type="text" name="name" id="name">
     </div>
 
-<<<<<<< HEAD
-    
-    <input type="hidden" name="lat" id="lat">
-   
-    <input type="hidden" name="lng" id="lng">
-=======
     <div class="location">
->>>>>>> individual-greenspace
 
 
       <input type="hidden" name="lat" id="lat">
