@@ -30,7 +30,9 @@ router.get('/', (req, res, next) => {
 
 /*Create GreenSpace page */
 router.get('/newgreenspace', loginCheck(), (req, res, next) => {
-  res.render('newGreenSpace');
+  res.render('newGreenSpace', {
+    user: req.user
+  });
 });
 
 
