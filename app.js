@@ -200,6 +200,9 @@ app.use('/user', user)
 const greenspace = require('./routes/greenspace');
 app.use('/greenspace', greenspace)
 
+const image = require('./routes/image');
+app.use('/image', image)
+
 
 
 module.exports = app;

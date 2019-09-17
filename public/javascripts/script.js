@@ -8,7 +8,7 @@
 
 
 
-// //Cloudinary Upload Widget for User profile image
+// // ###########   Cloudinary Upload Widget for User profile image      ###########
 
 var myWidget = cloudinary.createUploadWidget({
   cloudName: 'dmlqhwwfc',
@@ -25,9 +25,9 @@ var myWidget = cloudinary.createUploadWidget({
       window: "#F5F5F5",
       sourceBg: "#FFFFFF",
       windowBorder: "#74A772",
-      tabIcon: "#00C710",
+      tabIcon: "#3BA736",
       inactiveTabIcon: "#91B390",
-      menuIcons: "#08C700",
+      menuIcons: "#3BA736",
       link: "#65A747",
       action: "#00C710",
       inProgress: "#0194c7",
@@ -47,8 +47,7 @@ var myWidget = cloudinary.createUploadWidget({
 }, (error, result) => {
   if (!error && result && result.event === "success") {
     console.log('Done! Here is the image info: ', result.info);
-    // send to tthe backend to the route /user/whatever
-    // we send the secure url
+    // send secure url to the backend to the route /user
     //import axios
     let profileImage = result.info.secure_url
     axios.post("/user/:userId/profile-image", {
@@ -66,6 +65,69 @@ if (uploadButton) {
     myWidget.open()
   }, false);
 }
+
+
+
+// // ###########   Cloudinary Upload Widget for GreenSpace  images    ###########
+
+var greenSpaceWidget = cloudinary.createUploadWidget({
+  cloudName: 'dmlqhwwfc',
+  uploadPreset: 'umqopfpp',
+  sources: [
+    "local",
+    "url",
+    "camera",
+    "facebook",
+    "instagram"
+  ],
+  styles: {
+    palette: {
+      window: "#F5F5F5",
+      sourceBg: "#FFFFFF",
+      windowBorder: "#74A772",
+      tabIcon: "#3BA736",
+      inactiveTabIcon: "#91B390",
+      menuIcons: "#3BA736",
+      link: "#65A747",
+      action: "#00C710",
+      inProgress: "#0194c7",
+      complete: "#74A772",
+      error: "#c43737",
+      textDark: "#6D5243",
+      textLight: "#FFFFFF"
+    },
+    fonts: {
+      default: null,
+      "'Poppins', sans-serif": {
+        url: "https://fonts.googleapis.com/css?family=Poppins",
+        active: true
+      }
+    }
+  }
+}, (error, result) => {
+  if (!error && result && result.event === "success") {
+    console.log('Done! Here is the image info: ', result.info);
+    // send secure url to the backend to the route /greenspace:id
+    //import axios
+    let greenSpaceImage = result.info.secure_url
+    // console.log(greenSpaceImage);
+    axios.post("/image/:imageId/greenspace-image", {
+      greenSpaceImage
+    })
+  }
+})
+
+
+
+
+let greenUploadButton = document.getElementById("upload_greenspace_widget")
+if (greenUploadButton) {
+  greenUploadButton.addEventListener("click", function () {
+    greenSpaceWidget.open()
+  }, false);
+}
+
+
 
 
 

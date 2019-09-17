@@ -1,9 +1,37 @@
-<h1>Welcome to the GreenSpace {{greenspace.name}} </h1>
-{{!-- <h1>Welcome to the GreenSpace {{greenspace.greenspacename}} </h1> --}}
+<h1>Visit {{greenspace.name}} </h1>
 
 
+<div>
+  <h2>Tags for {{greenspace.name}}</h2>
+  <ul>
+    {{#each greenspace.tags}}
+    <li>
+      {{ this }}
+    </li>
+    {{/each}}
+  </ul>
+</div>
+
+<div>
+  <h2>Gallery</h2>
+
+  <button id="upload_greenspace_widget" class="cloudinary-button">Upload an image of this GreenSpace</button>
+
+  {{#each image.image}}
+  <img class="profile-image" src="{{ this }}" alt="GreenSpace Image">
+  {{/each}}
 
 
+</div>
+
+
+<div>
+  <h2>Comments</h2>
+  <button>ADD COMMENT</button>
+</div>
+
+
+<button>NAVIGATE TO{{greenspace.name}}</button>
 
 
 

@@ -84,10 +84,8 @@ router.post('/new', (req, res, next) => {
 /*Get individual GreenSpace page */
 router.get('/:greenspaceId', (req, res, next) => {
   const greenspaceId = req.params.greenspaceId;
-  // const userId = req.user._id;
   GreenSpace.findById(greenspaceId).then(greenspace => {
     res.render('greenspace', {
-      // user: user,
       user: req.user._id,
       greenspace: greenspace
     })
