@@ -12,19 +12,23 @@ const loginCheck = () => {
       next();
     } else {
       // else if user is not logged in, redirect to /login
-      res.redirect("/auth/login");
+      res.redirect("/");
+      // res.redirect("/auth/login");
     }
   };
 };
 
 
 /* GET home page */
-router.get('/', loginCheck(), (req, res, next) => {
+router.get('/', (req, res, next) => {
   console.log(req.user)
   res.render('index', {
     user: req.user
   });
 });
+
+
+
 
 
 /*Create GreenSpace page */

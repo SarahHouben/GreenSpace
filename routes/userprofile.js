@@ -13,7 +13,6 @@ router.get('/:userId', (req, res, next) => {
   const userId = req.params.userId;
 
   User.findById(req.user._id).then(user => {
-    console.log(user)
     res.render('user', {
       user: user
     });
@@ -32,8 +31,7 @@ router.post('/:userId/profile-image', (req, res, next) => {
       image: profileImage
     })
     .then(result => {
-      /* res.redirect(`/user/${userId.toString()}`); */
-      Location.reload()
+      res.redirect(`/user/${userId.toString()}`);
     })
     .catch(err => {
       console.log(err);
