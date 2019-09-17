@@ -197,6 +197,8 @@ app.use('/search', search)
 const user = require('./routes/userprofile');
 app.use('/user', user)
 
+const greenspace = require('./routes/greenspace');
+app.use('/greenspace', greenspace)
 
 
 

@@ -10,13 +10,15 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  const { lat, lng } = req.body;
+  const {
+    lat,
+    lng
+  } = req.body;
 
   res.render("./search/result-map", {
     lat,
     lng,
-    array: JSON.stringify([
-      {
+    array: JSON.stringify([{
         lat: 10,
         lng: 20
       },
@@ -36,10 +38,12 @@ router.get("/location", (req, res, next) => {
 });
 
 router.post("/address", (req, res, next) => {
-  const {address} = req.body;
- 
- console.log(axios.post(`"https://maps.googleapis.com/maps/api/geocode/json?address="${address}"berlin&key=AIzaSyDYLwxbUeRyQSlAjR9qLXh3pnr4TFCAIW0"`))
-  console.log("req.body.address" )
+  const {
+    address
+  } = req.body;
+
+  console.log(axios.post(`"https://maps.googleapis.com/maps/api/geocode/json?address="${address}"berlin&key=AIzaSyDYLwxbUeRyQSlAjR9qLXh3pnr4TFCAIW0"`))
+  console.log("req.body.address")
   res.render("./search/address");
 });
 
