@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
-
-
+const GreenSpace = require("../models/GreenSpace");
+const User = require("../models/User");
 
 //PASSPORT METHOD
 const loginCheck = () => {
@@ -29,10 +28,8 @@ router.get('/', (req, res, next) => {
 
 
 
-
-
 /*Create GreenSpace page */
-router.get('/newGreenSpace', loginCheck(), (req, res, next) => {
+router.get('/newgreenspace', loginCheck(), (req, res, next) => {
   res.render('newGreenSpace');
 });
 

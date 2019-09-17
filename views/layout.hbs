@@ -14,20 +14,30 @@
 
 <body>
 
-  <nav>
+  <nav class="navbar">
 
     <a href="/"> <img id="greenspace-logo" src="/images/greenspace_logo.png" alt="GreenSpace Logo"> </a>
 
-    <div>
-
+    <ul>
       {{#unless user}}
-      <a href="/auth/login">Login</a>
-      <a href="/auth/signup">Signup</a>
+      <li>
+        <a href="/auth/login">Login</a>
+      </li>
+      <li>
+        <a href="/auth/signup">Signup</a>
+      </li>
       {{else}}
-      <a href="/user/{{user._id}}">Profile</a>
-      <a href="/auth/logout">Logout</a>
+      <li>
+        <a href="/user/{{user._id}}">Profile</a>
+      </li>
+      <li>
+        <a href="/newgreenspace">New GreenSpace</a>
+      </li>
+      <li>
+        <a href="/auth/logout">Logout</a>
+      </li>
       {{/unless}}
-    </div>
+    </ul>
 
   </nav>
 

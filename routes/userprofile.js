@@ -4,9 +4,6 @@ const GreenSpace = require("../models/GreenSpace");
 const User = require("../models/User");
 
 /* GET user profile page */
-// router.get('/', (req, res, next) => {
-//   res.render('user');
-// });
 
 router.get('/:userId', (req, res, next) => {
   console.log(' profile page loaded')
