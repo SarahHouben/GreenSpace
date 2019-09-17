@@ -1,29 +1,36 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="search-container index">
+
+  <div class="index-text">
+    <h1>Find your {{title}}</h1>
+
+    <p>Berlin, a great but hectic city filled with the hustle and bustle of everyday life.
+      Find a place to turn it down a notch, enjoy some greenery or simply have your lunch.
+      Discover the GreenSpaces of Berlin.</p>
+
+  </div>
+
+
+  <div class="index-buttons">
+
+    <form action='/search/location' method="post">
+      <button><a href="/search/location">Find GreenSpaces Near You</a></button>
+    </form>
+
+
+    <form class="id-search" action='/search/address' method="post">
+      <input placeholder="Enter an Address" type="address" name="address" id="address">
+      <button type="submit">Search Location</button>
+    </form>
 
 
 
-<body>
-  <form action='/search/address' method="post">
-    <label for="address">Address:</label>
-    <input placeholder="Address" type="address" name="address" id="address">
-    {{!-- <label for="tag">Tags:</label>
-  <input type="tag" name="tag" id="tag"> --}}
 
-    <button type="submit">Search for location</button>
-  </form>
+    {{#with user}}
+    <form action='/search' method="post">
+      <button><a href="/search/favourites/:id">See Your Favourites</a></button>
+    </form>
+    {{/with}}
 
+  </div>
 
-
-
-  <form action='/search/location' method="post">
-    <button><a href="/search/location">Current location</a></button>
-  </form>
-
-  {{#with user}}
-  <form action='/search' method="post">
-    <button><a href="/search/favourites/:id">Favorites</a></button>
-  </form>
-  {{/with}}
-
-</body>
+</div>
