@@ -13,23 +13,24 @@
 
 </form> --}}
 
-
-<form action='/search' method="post">
-  <label for="address">Address:</label>
-  <input placeholder="Address" type="address" name="address" id="address">
-  {{!-- <label for="tag">Tags:</label>
+<body>
+  <form action='/search/address' method="post">
+    <label for="address">Address:</label>
+    <input placeholder="Address" type="address" name="address" id="address">
+    {{!-- <label for="tag">Tags:</label>
   <input type="tag" name="tag" id="tag"> --}}
 
-  <button><a href="/search/address">Search for location</a></button>
-</form>
+    <button type="submit">Search for location</button>
+  </form>
 
 
 
-<form action='/search' method="post">
-  <button><a href="/search/location">Current location</a></button>
-</form>
 
+  <form action='/search/location' method="post">
+    <button><a href="/search/location">Current location</a></button>
+  </form>
 
-<form action='/search' method="post">
-  <button><a href="/search/favourites/:id">Favorites</a></button>
-</form>
+  <form action='/search' method="post">
+    <button><a href="/search/favourites/:id">Favorites</a></button>
+  </form>
+</body>
