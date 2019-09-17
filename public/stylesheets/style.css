@@ -47,16 +47,10 @@ p {
     width: 45vw;
     list-style: none; }
 
-.profile-image {
-  height: 50px;
-  width: 50px; }
-
 footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 60px;
   background-color: #1c1c33; }
@@ -128,8 +122,37 @@ footer {
     .index-buttons .id-search button {
       margin-top: 15px; }
 
+.search-map {
+  height: calc(100vh - 150px) !important; }
+
+.new-gs-input {
+  display: flex; }
+
+.newGreenspace-map {
+  height: calc(100vh - 150px) !important;
+  width: 50vw; }
+
+.profile-image {
+  height: 50px;
+  width: 50px; }
+
 .cloudinary-button {
-  background-color: #6E9F2D !important; }
+  background-color: #C2D66F !important;
+  height: 40px !important;
+  width: 25vw !important;
+  color: #436623 !important;
+  border: 4px solid #619430 !important;
+  border-radius: 6px !important;
+  display: inline-block !important;
+  transition: all 0.3s ease 0s !important;
+  line-height: 0 !important; }
+
+.cloudinary-button:hover {
+  color: #494949 !important;
+  border-radius: 50px !important;
+  border-color: #494949 !important;
+  transition: all 0.3s ease 0s !important;
+  box-shadow: none !important; }
 
 .popup-box {
   color: red !important; }
