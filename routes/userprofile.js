@@ -7,9 +7,8 @@ const User = require("../models/User");
 
 router.get('/:userId', (req, res, next) => {
   console.log(' profile page loaded')
-  const userId = req.params.userId;
-
-  User.findById(req.user._id).then(user => {
+  const userId = req.user._id;
+  User.findById(userId).then(user => {
     res.render('user', {
       user: user
     });

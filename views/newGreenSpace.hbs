@@ -1,5 +1,6 @@
 <h1>Post your GreenSpace!</h1>
 
+<<<<<<< HEAD
 
 
 <style>
@@ -43,109 +44,168 @@
   </script>
 
 <form action="/greenspace/new" method="POST">
+=======
+>>>>>>> individual-greenspace
 
-  <div class="gs-name">
-    <label for="name">Name of your GreenSpace: </label>
-    <input type="text" name="name" id="name">
-  </div>
 
-  <div class="location">
+<style>
+  #map {
+    height: 100%;
+  }
 
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script>
+    let map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 52.520008, lng: 13.404954 },
+        zoom: 14
+      });
+      var image = 'https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png'
+      var marker = new google.maps.Marker({
+        position: { lat: 52.520008, lng: 13.404954 },
+        map: map,
+        draggable: true,
+        icon: image,
+        title: "Drag me!"
+
+      });
+
+      google.maps.event.addListener(marker, 'dragend', function (event) {
+        document.getElementById("lat").value = this.getPosition().lat();
+        document.getElementById("lng").value = this.getPosition().lng();
+      });
+    }
+
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYLwxbUeRyQSlAjR9qLXh3pnr4TFCAIW0&callback=initMap">
+    </script>
+
+  <form action="/greenspace/new" method="POST">
+
+    <div class="gs-name">
+      <label for="name">Name of your GreenSpace: </label>
+      <input type="text" name="name" id="name">
+    </div>
+
+<<<<<<< HEAD
     
     <input type="hidden" name="lat" id="lat">
    
     <input type="hidden" name="lng" id="lng">
+=======
+    <div class="location">
+>>>>>>> individual-greenspace
 
-  </div>
 
-  <div class="legend-tags">
+      <input type="hidden" name="lat" id="lat">
 
-    <legend>What applies to your GreenSpace?</legend>
+      <input type="hidden" name="lng" id="lng">
 
-    <div class="gs-tags">
+    </div>
 
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Park">
-        <label for="Park">Park</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Garden">
-        <label for="Garden">Garden</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Bench">
-        <label for="Bench">Bench</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Steps">
-        <label for="Steps">Steps</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Nature reserve">
-        <label for="Nature reserve">Nature reserve</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Tiny space">
-        <label for="Tiny space">Tiny space</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Water">
-        <label for="Water">Water</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Trees">
-        <label for="Trees">Trees</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Lawn">
-        <label for="Lawn">Lawn</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Food place">
-        <label for="Food place">Food place</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Quiet">
-        <label for="Quiet">Quiet</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Loud">
-        <label for="Loud">Loud</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Sports">
-        <label for="Sports">Sports</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Barbeque">
-        <label for="Barbeque">Barbeque</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Picknick">
-        <label for="Picknick">Picknick</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Playground">
-        <label for="Playground">Playground</label>
-      </div>
-      <div>
-        <input type="checkbox" name="tags" id="tags" value="Wheelchair-accessible">
-        <label for="Wheelchair-accessible">Wheelchair-accessible</label>
+    <div class="legend-tags">
+
+      <legend>What applies to your GreenSpace?</legend>
+
+      <div class="gs-tags">
+
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Park">
+          <label for="Park">Park</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Garden">
+          <label for="Garden">Garden</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Bench">
+          <label for="Bench">Bench</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Steps">
+          <label for="Steps">Steps</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Nature reserve">
+          <label for="Nature reserve">Nature reserve</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Tiny space">
+          <label for="Tiny space">Tiny space</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Water">
+          <label for="Water">Water</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Trees">
+          <label for="Trees">Trees</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Lawn">
+          <label for="Lawn">Lawn</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Food place">
+          <label for="Food place">Food place</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Quiet">
+          <label for="Quiet">Quiet</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Loud">
+          <label for="Loud">Loud</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Sports">
+          <label for="Sports">Sports</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Barbeque">
+          <label for="Barbeque">Barbeque</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Picknick">
+          <label for="Picknick">Picknick</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Playground">
+          <label for="Playground">Playground</label>
+        </div>
+        <div>
+          <input type="checkbox" name="tags" id="tags" value="Wheelchair-accessible">
+          <label for="Wheelchair-accessible">Wheelchair-accessible</label>
+        </div>
+
       </div>
 
     </div>
 
-  </div>
 
 
 
 
 
-  <button type="submit">Submit your GreenSpace!</button>
+    <button id="form-button" onclick="formCheck(event)">Submit your GreenSpace!</button>
 
-</form>
+  </form>
 
 
-{{#if message }}
-<div class="error-message">{{ message }}</div>
-{{/if}}
+  {{!-- {{#if message }}
+<div class="error-message" style="">{{ message }}</div>
+{{/if}} --}}
+
+  <div class="form-error"></div>
