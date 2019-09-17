@@ -24,7 +24,6 @@
       <a href="/auth/login">Login</a>
       <a href="/auth/signup">Signup</a>
       {{else}}
-      <p>this is the {{user.username}}</p>
       <a href="/user/{{user._id}}">Profile</a>
       <a href="/auth/logout">Logout</a>
       {{/unless}}
