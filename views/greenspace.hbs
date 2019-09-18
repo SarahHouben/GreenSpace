@@ -40,10 +40,12 @@
     <h3>Comments</h3>
 
     <div class="comment-list">
-      {{#each comments}}
-      <p> {{ this.comment }}</p>
-      <img class="user-image-comment" src="{{../user.image}}" alt="User profile">
-      {{/each}}
+      <ul class="comment-item">
+        {{#each comments}}
+        <li class="comment-item"> {{ this.comment }}</li>
+        <img class="user-image-comment" src="{{../user.image}}" alt="User profile">
+        {{/each}}
+      </ul>
     </div>
 
 
