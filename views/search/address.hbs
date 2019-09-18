@@ -27,7 +27,7 @@
       center: { lat: 52.520008, lng: 13.404954 },
       zoom: 15
     });
-    
+
     var image = 'https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png'
     let data = {{{ array }}};
   let marker = data.map(el => new google.maps.Marker({
@@ -40,16 +40,19 @@
   )
 
   )
-  marker.forEach(markerUnit => {
-    markerUnit.addListener('click', () => toggleBounce(markerUnit));
+
+//axios
+  marker.forEach((markerUnit, i) => {
+    let test = i
+  var contentString = `<div>${test}</div>`
+
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    markerUnit.addListener('click', () => infowindow.open(map, markerUnit));
   })
-  function toggleBounce(marker) {
-    if (marker.getAnimation() !== null) {
-      marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  }
+
 
 
   infoWindow = new google.maps.InfoWindow;
@@ -57,16 +60,16 @@
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
       var pos = {
-        lat: {{data.lat}},
-        lng: {{data.lng}}
+        lat: {{ data.lat }},
+      lng: {{ data.lng }}
       };
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('YOU');
-      infoWindow.open(map);
-      map.setCenter(pos);
+  infoWindow.setPosition(pos);
+  infoWindow.setContent('<img src="https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png" >');
+  infoWindow.open(map);
+  map.setCenter(pos);
     }, function () {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
+    handleLocationError(true, infoWindow, map.getCenter());
+  });
   } else {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());

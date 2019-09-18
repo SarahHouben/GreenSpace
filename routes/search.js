@@ -32,6 +32,7 @@ router.post("/address", (req, res, next) => {
           return obj.location;
         });
         let data = loc.data.results[0].geometry.location;
+      
         res.render("./search/address", {
           data,
           array: JSON.stringify(latLongArray)
