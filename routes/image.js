@@ -27,6 +27,24 @@ router.post('/greenspace-image', (req, res, next) => {
     })
 });
 
+// router.post('/greenspace-image', (req, res, next) => {
+//   const greenSpaceImage = req.body.greenSpaceImage;
+//   const greenspaceId = app.locals.spaceId;
+//   const userId = req.user._id;
+
+//   Image.create({
+//       image: greenSpaceImage,
+//       greenspace: greenspaceId,
+//       creator: userId
+//     })
+//     .then(newImage => {
+//       res.send();
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     })
+// });
+
 
 
 module.exports = router;

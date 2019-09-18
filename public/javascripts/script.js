@@ -109,7 +109,7 @@ var greenSpaceWidget = cloudinary.createUploadWidget({
       // console.log(greenSpaceImage);
       axios.post("/image/greenspace-image", {
         greenSpaceImage
-      });
+      })
     }
   }
 );
@@ -125,7 +125,7 @@ if (greenUploadButton) {
   );
 }
 
-//   ####### CHECK IF FORM FOR NEW GREENSPACE IS FILLED IN #######
+//   ####### CHECK IF FORM FOR NEW GREENSPACE IS FULLY FILLED IN #######
 
 const formCheck = event => {
   let formIDs = ["name", "lat", "lng"];
@@ -165,4 +165,20 @@ const commentFormCheck = event => {
   }
 };
 
-// module.exports = app;
+
+
+//   ####### FAVOURITE BUTTON -- ADD GREENSPACE TO FAVOURITE LIST OF USER  #######
+
+
+function sendId(e) {
+  e.preventDefault();
+  let value = document.getElementById('favourit').value
+  console.log(value)
+  // document.querySelector(".favourite-added").innerText =
+  //   "Added to Favourites.";
+  document.querySelector(".favourite-added").innerText =
+    "Added to Favourites.";
+  axios.post(`/greenspace/favorite/${value}`, {
+    value
+  })
+}

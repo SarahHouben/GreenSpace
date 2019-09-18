@@ -154,10 +154,7 @@ router.post('/favorite/:id', (req, res, next) => {
     }).then(found => {
       console.log(found);
     }),
-    console.log("dadasdasdassaddasdsadasdsasda", req.user._id)
-
-
-
+    console.log("dada", req.user._id)
 
 })
 

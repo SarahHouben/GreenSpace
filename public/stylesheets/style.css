@@ -323,6 +323,16 @@ footer {
   transition: all 0.3s ease 0s;
   box-shadow: none; }
 
+#star-favourite {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent; }
+  #star-favourite img {
+    height: 40px;
+    width: 40px;
+    cursor: pointer; }
+
 .profile-image {
   height: 50px;
   width: 50px;
