@@ -320,7 +320,7 @@ footer {
     text-align: center;
     color: #bd2c19;
     padding-top: 10px;
-  font-weight: 500;
+    font-weight: 500;
   }
 
 }
@@ -336,6 +336,13 @@ footer {
 .greenspace-image {
   height: 50px;
   width: 50px;
+}
+
+.comment-error {
+  text-align: center;
+  color: #bd2c19;
+  padding-top: 10px;
+  font-weight: 500;
 }
 
 //#####################  USER PROFILE  ############################
@@ -372,4 +379,12 @@ footer {
 
 .popup-box {
   color: red !important;
+}
+
+//#####################  ERROR MESSAGE  ############################
+
+.error-message {
+  text-align: center;
+  color: #bd2c19;
+  font-weight: 500;
 }

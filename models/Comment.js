@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
   comment: String,
-  rating: Number,
+  // rating: Number,
   greenspace: {
     type: Schema.Types.ObjectId,
     ref: 'GreenSpace'

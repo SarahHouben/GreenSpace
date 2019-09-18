@@ -34,30 +34,22 @@
   <div>
     <h3>Comments</h3>
 
-    <form action="/greenspace/GREENSPACEID" method="POST">
+    <div class="comment-list">
+      {{#each comments}}
+      <p> {{ this.comment }}</p>
+      {{/each}}
+    </div>
+
+    <form action="/greenspace/{{greenspace._id}}" method="POST">
 
       <input type="text" name="comment" id="comment" placeholder="Add your comment">
-      {{!-- <br><br>
-      <label for="rating">Rating (1 to 5): </label>
-      <input type="number" name="rating" id="rating" min="1" max="5"> --}}
 
-      <br><br>
-      <label for="rating">Rating of this Greenspace:</label>
-      <div class="select-rating">
-        <select name="rating" id="rating">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
+      <div class="comment-error"></div>
 
-      <br><br>
-
-      <button id="add-comment">Add a Comment</button>
+      <button id="add-comment" onclick="commentFormCheck(event)">Add a Comment</button>
 
     </form>
+
 
   </div>
 
@@ -76,9 +68,7 @@
 
 
 
-
-
-  <button>NAVIGATE TO{{greenspace.name}}</button>
+  <button>NAVIGATE TO {{greenspace.name}}</button>
 
 
 

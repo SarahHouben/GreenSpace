@@ -61,20 +61,58 @@ router.post('/new', (req, res, next) => {
     });
 })
 
+
+
+
+//####  Create New Comment Document  #### //
+
+router.post(`/:id`, loginCheck(), (req, res, next) => {
+
+  const comment = req.body.comment;
+  const greenspace = req.params.id;
+  const creator = req.user._id;
+
+
+  Comment.create({
+      comment,
+      greenspace,
+      creator
+    })
+    .then((newComment) => {
+      console.log(" New comment was added.");
+      res.redirect(`/greenspace/${greenspace}`);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+})
+
+
+
+
 //######          Get  GreenSpace Profile page      ###### //
 router.get('/:greenspaceId', (req, res, next) => {
   const greenspaceId = req.params.greenspaceId;
   app.locals.spaceId = greenspaceId
 
-  Image.find({greenspace: greenspaceId}).then(images=>{
-    GreenSpace.findById(greenspaceId).then(greenspace => {
-      res.render('greenspace', {
-        user: req.user._id,
-        greenspace: greenspace,
-        images: images
+  Comment.find({
+    greenspace: greenspaceId
+  }).then(comments => {
+    Image.find({
+      greenspace: greenspaceId
+    }).then(images => {
+      GreenSpace.findById(greenspaceId).then(greenspace => {
+        res.render('greenspace', {
+          user: req.user._id,
+          greenspace: greenspace,
+          images: images,
+          comments: comments
+        })
       })
+    });
   })
-  });
+
+
 });
 
 

@@ -10,7 +10,6 @@ const app = require('../app')
 //Greenspace Photo --> create new Image Document!
 router.post('/greenspace-image', (req, res, next) => {
   const greenSpaceImage = req.body.greenSpaceImage;
-  // console.log(app.locals.spaceId)
   const greenspaceId = app.locals.spaceId;
   const userId = req.user._id;
 

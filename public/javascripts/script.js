@@ -151,3 +151,17 @@ const formCheck = (event) => {
     }
   })
 }
+
+
+
+//   ####### CHECK IF COMMENT FORM  IS FILLED IN #######
+
+const commentFormCheck = (event) => {
+  let commentId = "comment"
+  if (document.getElementById(commentId).value === "") {
+    event.preventDefault();
+    document.querySelector(".comment-error").innerText = "Please add a comment."
+  } else {
+    document.getElementById("form-button").setAttribute = ("type", "submit")
+  }
+}

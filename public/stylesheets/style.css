@@ -211,6 +211,12 @@ footer {
   height: 50px;
   width: 50px; }
 
+.comment-error {
+  text-align: center;
+  color: #bd2c19;
+  padding-top: 10px;
+  font-weight: 500; }
+
 .profile-image {
   height: 50px;
   width: 50px; }
@@ -235,5 +241,10 @@ footer {
 
 .popup-box {
   color: red !important; }
+
+.error-message {
+  text-align: center;
+  color: #bd2c19;
+  font-weight: 500; }
 
 /*# sourceMappingURL=style.css.map */
