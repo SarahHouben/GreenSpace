@@ -19,8 +19,7 @@
     var image = 'https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png'
 
     //prettier-ignore
-    let data = {{{ array }
-  }};
+    let data = {{{ array }}};
 
   //console.log(data)
   let marker = data.map(el => new google.maps.Marker({
@@ -76,8 +75,7 @@
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
         var pos = {
-          lat: {{ data.lat }
-      },
+          lat: {{ data.lat }},
         lng: {{ data.lng }}
   };
   infoWindow.setPosition(pos);
