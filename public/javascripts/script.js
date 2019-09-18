@@ -1,10 +1,10 @@
-// document.addEventListener(
-//   "DOMContentLoaded",
-//   () => {
-//     console.log("IronGenerator JS imported successfully!");
-//   },
-//   false
-// );
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    console.log("GreenSpace JS imported successfully!");
+  },
+  false
+);
 
 
 

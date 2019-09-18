@@ -14,6 +14,11 @@ h1 {
   font-weight: 500;
 }
 
+h2 {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
 p {
   font-size: 1rem;
   line-height: 2rem;
@@ -213,6 +218,84 @@ footer {
 .newGreenspace-map {
   height: calc(100vh - 150px) !important;
   width: 50vw;
+}
+
+
+#new-gs-form {
+  box-sizing: border-box;
+  padding: 3% 5%;
+  width: 50vw;
+
+  display: flex;
+  flex-direction: column;
+
+  p {
+    padding: 10px 0;
+    font-style: italic;
+  }
+
+  .gs-name {
+    padding-bottom: 10px;
+
+    label {
+      font-style: italic
+    }
+
+    input {
+      border-radius: 6px;
+      text-align: center;
+    }
+  }
+
+  .legend-tags {
+    legend {
+      padding: 10px 0 5px 0;
+      font-style: italic
+    }
+  }
+
+  .gs-tags {
+    box-sizing: border-box;
+    display: flex;
+    padding-bottom: 20px;
+
+    div {
+      padding-top: 5px;
+    }
+
+    .left-gs-tags {
+      box-sizing: border-box;
+      padding-left: 30px;
+    }
+
+    .right-gs-tags {
+      box-sizing: border-box;
+      padding-left: 30px;
+    }
+
+  }
+
+
+  #form-button {
+    background-color: #C2D66F;
+    height: 40px;
+    width: 230px;
+    color: #436623;
+    border: 4px solid #619430;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    line-height: 0;
+  }
+
+  #form-button:hover {
+    color: #494949;
+    border-radius: 50px;
+    border-color: #494949;
+    transition: all 0.3s ease 0s;
+    box-shadow: none;
+  }
+
 }
 
 //#####################  USER PROFILE  ############################

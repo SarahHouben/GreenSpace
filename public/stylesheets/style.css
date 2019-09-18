@@ -10,6 +10,10 @@ h1 {
   font-size: 2.3rem;
   font-weight: 500; }
 
+h2 {
+  font-size: 1.7rem;
+  font-weight: 500; }
+
 p {
   font-size: 1rem;
   line-height: 2rem; }
@@ -131,6 +135,54 @@ footer {
 .newGreenspace-map {
   height: calc(100vh - 150px) !important;
   width: 50vw; }
+
+#new-gs-form {
+  box-sizing: border-box;
+  padding: 3% 5%;
+  width: 50vw;
+  display: flex;
+  flex-direction: column; }
+  #new-gs-form p {
+    padding: 10px 0;
+    font-style: italic; }
+  #new-gs-form .gs-name {
+    padding-bottom: 10px; }
+    #new-gs-form .gs-name label {
+      font-style: italic; }
+    #new-gs-form .gs-name input {
+      border-radius: 6px;
+      text-align: center; }
+  #new-gs-form .legend-tags legend {
+    padding: 10px 0 5px 0;
+    font-style: italic; }
+  #new-gs-form .gs-tags {
+    box-sizing: border-box;
+    display: flex;
+    padding-bottom: 20px; }
+    #new-gs-form .gs-tags div {
+      padding-top: 5px; }
+    #new-gs-form .gs-tags .left-gs-tags {
+      box-sizing: border-box;
+      padding-left: 30px; }
+    #new-gs-form .gs-tags .right-gs-tags {
+      box-sizing: border-box;
+      padding-left: 30px; }
+  #new-gs-form #form-button {
+    background-color: #C2D66F;
+    height: 40px;
+    width: 230px;
+    color: #436623;
+    border: 4px solid #619430;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    line-height: 0; }
+  #new-gs-form #form-button:hover {
+    color: #494949;
+    border-radius: 50px;
+    border-color: #494949;
+    transition: all 0.3s ease 0s;
+    box-shadow: none; }
 
 .profile-image {
   height: 50px;

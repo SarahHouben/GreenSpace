@@ -1,4 +1,5 @@
-<div id="map"></div>
+
+<div id="map" class="search-map"></div>
 
 
 <script async defer
@@ -17,8 +18,11 @@
     });
 
     var image = 'https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png'
-    let data = {{{ array }
-  }};
+
+
+    let data = {{{ array }}};
+
+
   let marker = data.map(el => new google.maps.Marker({
     position: { lat: el.lat, lng: el.lng },
     map: map,
@@ -41,8 +45,7 @@
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
       var pos = {
-        lat: {{ data.lat }
-    },
+        lat: {{ data.lat }},
       lng: {{ data.lng }}
       };
   infoWindow.setPosition(pos);

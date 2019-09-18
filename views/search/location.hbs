@@ -1,15 +1,4 @@
-<style>
-  #map {
-    height: 100%;
-  }
 
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-</style>
 <div id="map" class="search-map"></div>
 
 
@@ -28,17 +17,13 @@
       zoom: 15
     });
     var image = 'https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png'
-    let data = {{{ array }
-  }};
+    let data = {{{ array }}};
   let marker = data.map(el => new google.maps.Marker({
     position: { lat: el.lat, lng: el.lng },
     map: map,
     icon: image,
-
-
   }
   )
-
   )
   marker.forEach(markerUnit => {
     markerUnit.addListener('click', () => toggleBounce(markerUnit));
@@ -51,8 +36,6 @@
       marker.setAnimation(google.maps.Animation.BOUNCE);
     }
   }
-
-
   infoWindow = new google.maps.InfoWindow;
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
