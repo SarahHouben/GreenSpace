@@ -58,6 +58,7 @@
     </form>
     {{/if}}
 
+   
 
   </div>
 
@@ -93,3 +94,21 @@
   {{/with}}
 
 </div>
+
+<div>
+  {{#if user._id}}
+    <form >
+      <input type="hidden" name="favourit" id="favourit" value="{{greenspace._id}}">
+      <button class="profile-button" onclick="sendId(event)">Add to favourites </button>
+    </form>
+    {{/if}}
+    </div>
+
+<script>
+  function sendId(e){
+    e.preventDefault();
+    let value = document.getElementById('favourit').value
+console.log(value)
+    axios.post(`/greenspace/favorite/${value}`,{value})
+  }
+</script>

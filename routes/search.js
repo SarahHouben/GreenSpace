@@ -62,7 +62,7 @@ router.post("/address", (req, res, next) => {
 
 router.get("/address", (req, res, next) => {
   GreenSpace.find({}).then(places => {
-    console.log(places);
+    
     Image.find({}).then(images => {
       let newObj = { places, images };
       // console.log(newObj)
@@ -74,7 +74,7 @@ router.get("/location/test", (req, res, next) => {
   GreenSpace.find({}).then(places => {
     Image.find({}).then(images => {
       let newOb = { places, images };
-      console.log(newOb);
+      
       res.json(newOb);
     });
   });

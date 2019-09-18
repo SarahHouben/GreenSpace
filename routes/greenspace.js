@@ -67,7 +67,7 @@ router.post('/new', (req, res, next) => {
 //####  Create New Comment Document  #### //
 
 router.post(`/:id`, (req, res, next) => {
-
+// console.log(req.body)
   const comment = req.body.comment;
   const greenspace = req.params.id;
   const creator = req.user._id;
@@ -140,6 +140,16 @@ router.get('/:greenspaceId', (req, res, next) => {
 });
 
 
-
+router.post('/favorite/:id',(req,res,next) =>{
+User.findByIdAndUpdate({_id:req.user._id},{ $push:{favourites:req.params.id}},{new:true}).then(found =>{
+console.log(found);
+}
+),
+  console.log("dadasdasdassaddasdsadasdsasda" ,req.user._id)
+  
+  
+ 
+ 
+})
 
 module.exports = router;

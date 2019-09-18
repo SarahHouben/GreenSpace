@@ -5,7 +5,10 @@ const userSchema = new Schema({
   username: String,
   password: String,
   email: String,
-  favourites: Array,
+  favourites: [{
+    type: Schema.Types.ObjectId,
+    ref: "favorite"
+  }],
   image: {
     type: String,
     default: "https://res.cloudinary.com=/dmlqhwwfc/image/upload/v1568703809/GreenSpace/default_user_image_gubmhl.png"
