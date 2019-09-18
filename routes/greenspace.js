@@ -23,7 +23,7 @@ const loginCheck = () => {
 
 
 //####  Get "Create New GreenSpace" page  #### //
-router.get('/new', loginCheck(), (req, res, next) => {
+router.get('/new', (req, res, next) => {
   res.render('newGreenSpace', {
     user: req.user,
   });
@@ -66,12 +66,11 @@ router.post('/new', (req, res, next) => {
 
 //####  Create New Comment Document  #### //
 
-router.post(`/:id`, loginCheck(), (req, res, next) => {
+router.post(`/:id`, (req, res, next) => {
 
   const comment = req.body.comment;
   const greenspace = req.params.id;
   const creator = req.user._id;
-
 
   Comment.create({
       comment,
@@ -94,7 +93,7 @@ router.post(`/:id`, loginCheck(), (req, res, next) => {
 router.get('/:greenspaceId', (req, res, next) => {
   const greenspaceId = req.params.greenspaceId;
   app.locals.spaceId = greenspaceId
-
+  const user = req.user
   Comment.find({
     greenspace: greenspaceId
   }).then(comments => {
@@ -102,8 +101,9 @@ router.get('/:greenspaceId', (req, res, next) => {
       greenspace: greenspaceId
     }).then(images => {
       GreenSpace.findById(greenspaceId).then(greenspace => {
+        console.log(comments)
         res.render('greenspace', {
-          user: req.user._id,
+          user,
           greenspace: greenspace,
           images: images,
           comments: comments
@@ -114,23 +114,6 @@ router.get('/:greenspaceId', (req, res, next) => {
 
 
 });
-
-
-//######          Get  GreenSpace Profile page      ###### //
-// router.get('/:greenspaceId', (req, res, next) => {
-//   const greenspaceId = req.params.greenspaceId;
-//   app.locals.spaceId = greenspaceId
-
-//   Image.find({greenspace: greenspaceId}).then(images=>{
-//     GreenSpace.findById(greenspaceId).then(greenspace => {
-//       res.render('greenspace', {
-//         user: req.user._id,
-//         greenspace: greenspace,
-//         images: images
-//       })
-//   })
-//   });
-// });
 
 
 

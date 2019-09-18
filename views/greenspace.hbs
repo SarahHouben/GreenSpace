@@ -22,11 +22,16 @@
       {{#each images}}
       <img class="greenspace-image" src="{{ this.image }}" alt="GreenSpace Image">
       {{/each}}
+
+
+
     </div>
 
+    {{#if user._id}}
     <div class="gallery-button">
       <button id="upload_greenspace_widget" class="cloudinary-button">Add an Image</button>
     </div>
+    {{/if}}
 
   </div>
 
@@ -37,18 +42,19 @@
     <div class="comment-list">
       {{#each comments}}
       <p> {{ this.comment }}</p>
+      <img src="{{../user.image}}" alt="User profile">
       {{/each}}
     </div>
 
+
+
+    {{#if user._id}}
     <form action="/greenspace/{{greenspace._id}}" method="POST">
-
       <input type="text" name="comment" id="comment" placeholder="Add your comment">
-
       <div class="comment-error"></div>
-
       <button id="add-comment" onclick="commentFormCheck(event)">Add a Comment</button>
-
     </form>
+    {{/if}}
 
 
   </div>
@@ -68,19 +74,19 @@
 
 
 
-  <button>NAVIGATE TO {{greenspace.name}}</button>
+  <button class="profile-button">NAVIGATE TO {{greenspace.name}}</button>
 
 
 
-  <button><a href="/">Search for another GreenSpace</a></button>
+  <button class="profile-button"><a href="/">Search for another GreenSpace</a></button>
 
   {{#with user}}
 
   <form action='/search' method="post">
-    <button><a href="/search/favourites/:id">Favorites</a></button>
+    <button class="profile-button"><a href="/search/favourites/:id">Favorites</a></button>
   </form>
 
-  <button><a href="/greenspace/new">Add another GreenSpace</a></button>
+  <button class="profile-button"><a href="/greenspace/new">Add another GreenSpace</a></button>
 
   {{/with}}
 
