@@ -29,16 +29,21 @@
   }
   )
   )
-  marker.forEach(markerUnit => {
-    markerUnit.addListener('click', () => toggleBounce(markerUnit));
+
+//axios
+  marker.forEach((markerUnit, i) => {
+    let test = i
+  var contentString = `<div>${test}</div>`
+
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    markerUnit.addListener('click', () => infowindow.open(map, markerUnit));
   })
-  function toggleBounce(marker) {
-    if (marker.getAnimation() !== null) {
-      marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  }
+
+
+
   infoWindow = new google.maps.InfoWindow;
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
@@ -48,7 +53,7 @@
       lng: {{ data.lng }}
       };
   infoWindow.setPosition(pos);
-  infoWindow.setContent('YOU');
+  infoWindow.setContent('<img src="https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png" >');
   infoWindow.open(map);
   map.setCenter(pos);
     }, function () {

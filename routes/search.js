@@ -45,6 +45,7 @@ router.post("/address", (req, res, next) => {
           return obj.location;
         });
         let data = loc.data.results[0].geometry.location;
+      
         res.render("./search/address", {
           user: req.user,
           data,
