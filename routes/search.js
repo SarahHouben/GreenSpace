@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const GreenSpace = require("../models/GreenSpace");
 const User = require("../models/User");
+const Image = require("../models/Image");
 const axios = require("axios");
 
 // router.get("/", (req, res, next) => {
@@ -11,13 +12,15 @@ const axios = require("axios");
 // });
 
 router.get("/location", (req, res, next) => {
-  GreenSpace.find({}, {
-      location: 1,
-      _id: 0
-    })
+  GreenSpace.find(
+    {},
+    {
+      location: 1
+    }
+  )
     .then(locations => {
       let latLongArray = locations.map(obj => {
-        return obj.location;
+        return obj; // vrati object da bi dobio i ID
       });
 
       res.render("./search/location", {
@@ -29,23 +32,24 @@ router.get("/location", (req, res, next) => {
 });
 
 router.post("/address", (req, res, next) => {
-  const {
-    address
-  } = req.body;
+  const { address } = req.body;
   axios
     .get(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${address}berlin&key=AIzaSyDYLwxbUeRyQSlAjR9qLXh3pnr4TFCAIW0`
     )
     .then(loc => {
-      GreenSpace.find({}, {
-        location: 1,
-        _id: 0
-      }).then(locations => {
+      GreenSpace.find(
+        {},
+        {
+          location: 1
+        }
+      ).then(locations => {
+        // console.log("here is locations",locations)
         let latLongArray = locations.map(obj => {
-          return obj.location;
+          return obj;
         });
+        // console.log(latLongArray)
         let data = loc.data.results[0].geometry.location;
-      
         res.render("./search/address", {
           user: req.user,
           data,
@@ -54,6 +58,26 @@ router.post("/address", (req, res, next) => {
       });
     })
     .catch(err => console.log(err));
+});
+
+router.get("/address", (req, res, next) => {
+  GreenSpace.find({}).then(places => {
+    console.log(places);
+    Image.find({}).then(images => {
+      let newObj = { places, images };
+      // console.log(newObj)
+      res.json(newObj);
+    });
+  });
+});
+router.get("/location/test", (req, res, next) => {
+  GreenSpace.find({}).then(places => {
+    Image.find({}).then(images => {
+      let newOb = { places, images };
+      console.log(newOb);
+      res.json(newOb);
+    });
+  });
 });
 
 module.exports = router;

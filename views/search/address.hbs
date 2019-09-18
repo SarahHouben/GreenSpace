@@ -18,40 +18,68 @@
 
     var image = 'https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png'
 
-//prettier-ignore
-    let data = {{{ array }}};
+    //prettier-ignore
+    let data = {{{ array }
+  }};
 
-
+  //console.log(data)
   let marker = data.map(el => new google.maps.Marker({
-    position: { lat: el.lat, lng: el.lng },
+
+    position: { lat: el.location.lat, lng: el.location.lng },
     map: map,
     icon: image,
+    title: el._id
   }
+
   )
+
   )
+  axios.get('http://localhost:3000/search/address').then((response) => {
+    var places = response.data.places;
+    var images = response.data.images;
+    //console.log(images)
+    marker.forEach((markerUnit, i) => {
 
-//axios
-  marker.forEach((markerUnit, i) => {
-    let test = i
-  var contentString = `<div>${test}</div>`
+      let greenspaceData = places.filter(function (data) {
+        return data._id === markerUnit.title;
+      });
+      let imageData = images.filter(function (data) {
+        return data.greenspace === markerUnit.title;
+      });
+      //console.log(imageData)
 
-  var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
-
-    markerUnit.addListener('click', () => infowindow.open(map, markerUnit));
-  })
-
-
-
-  infoWindow = new google.maps.InfoWindow;
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      var pos = {
-        lat: {{ data.lat }},
-      lng: {{ data.lng }}
+      // console.log(markerUnit.title)
+      var img;
+      let name = greenspaceData[0].name;
+      let id = greenspaceData[0]._id;
+      if (imageData.length === 0) {
+        img = "https://middlesbrough.gov.uk/sites/default/files/Albert_Park_2008.jpg"
+      } else {
+        img = imageData[0].image;
       };
+
+
+      console.log(img)
+      var contentString = `<h1>${name}</h1> <a href="/greenspace/${id}"> Go to Greenspace</a><img src=${img} alt="">`;
+
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+
+      markerUnit.addListener('click', () => infowindow.open(map, markerUnit));
+    })
+
+
+
+    infoWindow = new google.maps.InfoWindow;
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        var pos = {
+          lat: {{ data.lat }
+      },
+        lng: {{ data.lng }}
+  };
   infoWindow.setPosition(pos);
   infoWindow.setContent('<img src="https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png" >');
   infoWindow.open(map);
@@ -63,7 +91,6 @@
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
-  }
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ?
@@ -71,5 +98,13 @@
       'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
   }
-</script>
+    
+    
+  
+  })
+//axios
 
+  }
+
+
+</script>

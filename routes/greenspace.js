@@ -85,17 +85,34 @@ router.post('/new', (req, res, next) => {
 
 /*Get individual GreenSpace page */
 router.get('/:greenspaceId', (req, res, next) => {
+
   const greenspaceId = req.params.greenspaceId;
   app.locals.spaceId = greenspaceId
-
-  Image.find({greenspace: greenspaceId}).then(images=>{
-    GreenSpace.findById(greenspaceId).then(greenspace => {
+  Image.find({greenspace: greenspaceId})
+  .then(images=>{
+    GreenSpace.findById({_id:greenspaceId})
+    .then(greenspace => {
+      if(req.user){
       res.render('greenspace', {
-        user: req.user._id,
+      user: req.user._id,
         greenspace: greenspace,
         images: images
-      })
+      })}else{
+        res.render('greenspace', {
+            greenspace: greenspace,
+            images: images
+          })
+
+      }
   })
+  .catch(err => {
+    console.log(err);
+    next();
+  });
+  })
+  .catch(err => {
+    console.log(err);
+    next();
   });
 });
 
