@@ -11,7 +11,11 @@ h1 {
   font-weight: 500; }
 
 h2 {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
+  font-weight: 500; }
+
+h3 {
+  font-size: 1.2rem;
   font-weight: 500; }
 
 p {
@@ -149,10 +153,12 @@ footer {
   #new-gs-form .gs-name {
     padding-bottom: 10px; }
     #new-gs-form .gs-name label {
-      font-style: italic; }
+      font-style: italic;
+      padding-right: 10px; }
     #new-gs-form .gs-name input {
       border-radius: 6px;
-      text-align: center; }
+      text-align: center;
+      width: 50%; }
   #new-gs-form .legend-tags legend {
     padding: 10px 0 5px 0;
     font-style: italic; }
@@ -174,7 +180,7 @@ footer {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding-top: 50px; }
+    padding-top: 5vh; }
   #new-gs-form #form-button {
     background-color: #C2D66F;
     height: 40px;
@@ -191,6 +197,25 @@ footer {
     border-color: #494949;
     transition: all 0.3s ease 0s;
     box-shadow: none; }
+  #new-gs-form .form-error {
+    text-align: center;
+    color: #bd2c19;
+    padding-top: 10px;
+    font-weight: 500; }
+
+.gallery-images {
+  display: flex;
+  flex-wrap: wrap; }
+
+.greenspace-image {
+  height: 50px;
+  width: 50px; }
+
+.comment-error {
+  text-align: center;
+  color: #bd2c19;
+  padding-top: 10px;
+  font-weight: 500; }
 
 .profile-image {
   height: 50px;
@@ -216,5 +241,10 @@ footer {
 
 .popup-box {
   color: red !important; }
+
+.error-message {
+  text-align: center;
+  color: #bd2c19;
+  font-weight: 500; }
 
 /*# sourceMappingURL=style.css.map */

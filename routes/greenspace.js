@@ -3,6 +3,7 @@ const router = express.Router();
 const GreenSpace = require("../models/GreenSpace");
 const User = require("../models/User");
 const Image = require("../models/Image");
+const Comment = require("../models/Comment");
 const app = require('../app')
 
 // //PASSPORT METHOD
@@ -21,16 +22,15 @@ const loginCheck = () => {
 
 
 
-/*Get "Create New GreenSpace" page */
+//####  Get "Create New GreenSpace" page  #### //
 router.get('/new', loginCheck(), (req, res, next) => {
   res.render('newGreenSpace', {
     user: req.user,
-    // message: "Please enter a name for your GreenSpace"
   });
 });
 
 
-//####  Create New GreenSpace   #### //
+//####  Create New GreenSpace Document  #### //
 
 router.post('/new', (req, res, next) => {
   console.log(req.body)
@@ -41,26 +41,6 @@ router.post('/new', (req, res, next) => {
     lng,
     tags
   } = req.body;
-
-  // if (name === "" || lat === "" || lng === "") {
-  //   // res.json({message: "Please enter a name for your GreenSpace"})
-  //   res.render("newGreenSpace", {
-  //     user: req.user,
-  //     message: "Please enter name and location for your GreenSpace"
-  //   });
-  //   return;
-  // }
-
-
-  // if (tags === undefined) {
-  //   // res.json({message: "Please enter a name for your GreenSpace"})
-  //   res.render("newGreenSpace", {
-  //     user: req.user,
-  //     message: "Please select at least one tag for your GreenSpace"
-  //   });
-  //   return;
-  // }
-
 
   GreenSpace.create({
       name,
@@ -73,8 +53,6 @@ router.post('/new', (req, res, next) => {
     })
     .then(greenspace => {
       console.log(`Success! ${name} was added to the database.`, greenspace);
-      // res.redirect(`/greenspace/new`);
-      // res.redirect(`/user/${req.user._id}`);
       res.redirect(`/greenspace/${greenspace._id}`);
     })
     .catch(err => {
@@ -83,7 +61,36 @@ router.post('/new', (req, res, next) => {
     });
 })
 
-/*Get individual GreenSpace page */
+
+
+
+//####  Create New Comment Document  #### //
+
+router.post(`/:id`, loginCheck(), (req, res, next) => {
+
+  const comment = req.body.comment;
+  const greenspace = req.params.id;
+  const creator = req.user._id;
+
+
+  Comment.create({
+      comment,
+      greenspace,
+      creator
+    })
+    .then((newComment) => {
+      console.log(" New comment was added.");
+      res.redirect(`/greenspace/${greenspace}`);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+})
+
+
+
+
+//######          Get  GreenSpace Profile page      ###### //
 router.get('/:greenspaceId', (req, res, next) => {
 
   const greenspaceId = req.params.greenspaceId;
@@ -115,6 +122,24 @@ router.get('/:greenspaceId', (req, res, next) => {
     next();
   });
 });
+
+
+//######          Get  GreenSpace Profile page      ###### //
+// router.get('/:greenspaceId', (req, res, next) => {
+//   const greenspaceId = req.params.greenspaceId;
+//   app.locals.spaceId = greenspaceId
+
+//   Image.find({greenspace: greenspaceId}).then(images=>{
+//     GreenSpace.findById(greenspaceId).then(greenspace => {
+//       res.render('greenspace', {
+//         user: req.user._id,
+//         greenspace: greenspace,
+//         images: images
+//       })
+//   })
+//   });
+// });
+
 
 
 
