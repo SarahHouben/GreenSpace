@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const GreenSpace = require("../models/GreenSpace");
 const User = require("../models/User");
+const Image = require("../models/Image");
 const app = require('../app')
 
 // //PASSPORT METHOD
@@ -86,11 +87,15 @@ router.post('/new', (req, res, next) => {
 router.get('/:greenspaceId', (req, res, next) => {
   const greenspaceId = req.params.greenspaceId;
   app.locals.spaceId = greenspaceId
-  GreenSpace.findById(greenspaceId).then(greenspace => {
-    res.render('greenspace', {
-      user: req.user._id,
-      greenspace: greenspace
-    })
+
+  Image.find({greenspace: greenspaceId}).then(images=>{
+    GreenSpace.findById(greenspaceId).then(greenspace => {
+      res.render('greenspace', {
+        user: req.user._id,
+        greenspace: greenspace,
+        images: images
+      })
+  })
   });
 });
 

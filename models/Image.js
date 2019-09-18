@@ -6,14 +6,14 @@ const imageSchema = new Schema({
     type: String,
     default: "/public/images/greenspace_default.jpg"
   },
-  greenspace: [{
+  greenspace: {
     type: Schema.Types.ObjectId,
     ref: 'GreenSpace'
-  }],
-  creator: [{
+  },
+  creator: {
     type: Schema.Types.ObjectId,
     ref: 'User'
-  }],
+  },
 }, {
   timestamps: {
     createdAt: 'created_at',
