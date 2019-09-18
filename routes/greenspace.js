@@ -92,56 +92,51 @@ router.post(`/:id`, (req, res, next) => {
 //######          Get  GreenSpace Profile page      ###### //
 router.get('/:greenspaceId', (req, res, next) => {
 
+  const user = req.user
   const greenspaceId = req.params.greenspaceId;
   app.locals.spaceId = greenspaceId
-<<<<<<< HEAD
-  Image.find({greenspace: greenspaceId})
-  .then(images=>{
-    GreenSpace.findById({_id:greenspaceId})
-    .then(greenspace => {
-      if(req.user){
-      res.render('greenspace', {
-      user: req.user._id,
-        greenspace: greenspace,
-        images: images
-      })}else{
-        res.render('greenspace', {
-            greenspace: greenspace,
-            images: images
-          })
-=======
-  const user = req.user
+
   Comment.find({
-    greenspace: greenspaceId
-  }).then(comments => {
-    Image.find({
       greenspace: greenspaceId
-    }).then(images => {
-      GreenSpace.findById(greenspaceId).then(greenspace => {
-        console.log(comments)
-        res.render('greenspace', {
-          user,
-          greenspace: greenspace,
-          images: images,
-          comments: comments
+    }).then(comments => {
+
+      Image.find({
+          greenspace: greenspaceId
         })
-      })
+        .then(images => {
+          GreenSpace.findById({
+              _id: greenspaceId
+            })
+            .then(greenspace => {
+              if (req.user) {
+                res.render('greenspace', {
+                  user: user,
+                  greenspace: greenspace,
+                  images: images,
+                  comments: comments
+                })
+              } else {
+                res.render('greenspace', {
+                  greenspace: greenspace,
+                  images: images,
+                  comments: comments
+                })
+              }
+            })
+            .catch(err => {
+              console.log(err);
+              next();
+            });
+        })
+        .catch(err => {
+          console.log(err);
+          next();
+        });
+    })
+    .catch(err => {
+      console.log(err);
+      next();
     });
-  })
-
->>>>>>> comment-formatting
-
-      }
-  })
-  .catch(err => {
-    console.log(err);
-    next();
-  });
-  })
-  .catch(err => {
-    console.log(err);
-    next();
-  });
 });
 
 
