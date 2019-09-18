@@ -111,8 +111,9 @@ var greenSpaceWidget = cloudinary.createUploadWidget({
     //import axios
     let greenSpaceImage = result.info.secure_url
     // console.log(greenSpaceImage);
-    axios.post("/image/:imageId/greenspace-image", {
+    axios.post("/image/greenspace-image", {
       greenSpaceImage
+
     })
   }
 })

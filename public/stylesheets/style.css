@@ -139,6 +139,7 @@ footer {
 #new-gs-form {
   box-sizing: border-box;
   padding: 3% 5%;
+  height: calc(100vh - 150px);
   width: 50vw;
   display: flex;
   flex-direction: column; }
@@ -158,7 +159,8 @@ footer {
   #new-gs-form .gs-tags {
     box-sizing: border-box;
     display: flex;
-    padding-bottom: 20px; }
+    padding-bottom: 20px;
+    justify-content: center; }
     #new-gs-form .gs-tags div {
       padding-top: 5px; }
     #new-gs-form .gs-tags .left-gs-tags {
@@ -167,6 +169,12 @@ footer {
     #new-gs-form .gs-tags .right-gs-tags {
       box-sizing: border-box;
       padding-left: 30px; }
+  #new-gs-form .gs-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 50px; }
   #new-gs-form #form-button {
     background-color: #C2D66F;
     height: 40px;

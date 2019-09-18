@@ -3,25 +3,24 @@ const router = express.Router();
 const GreenSpace = require("../models/GreenSpace");
 const User = require("../models/User");
 const Image = require("../models/Image");
-const axios = require("axios");
+const app = require('../app')
 
 
 
 //Greenspace Photo --> create new Image Document!
-router.post('/:imageId/greenspace-image', (req, res, next) => {
+router.post('/greenspace-image', (req, res, next) => {
   const greenSpaceImage = req.body.greenSpaceImage;
-  console.log(greenspaceImage)
-  // const greenspaceId = req.user._id;
-  const greenspaceId = req.params.greenspace._id;
+  // console.log(app.locals.spaceId)
+  const greenspaceId = app.locals.spaceId;
   const userId = req.user._id;
 
-  GreenSpace.create({
+  Image.create({
       image: greenSpaceImage,
       greenspace: greenspaceId,
       creator: userId
     })
     .then((newImage) => {
-      console.log(" New image was upleaded.");
+      console.log(" New image was uploaded.");
       res.redirect(`/greenspace/${greenspaceId.toString()}`);
     })
     .catch(err => {

@@ -224,6 +224,7 @@ footer {
 #new-gs-form {
   box-sizing: border-box;
   padding: 3% 5%;
+  height: calc(100vh - 150px);
   width: 50vw;
 
   display: flex;
@@ -258,6 +259,8 @@ footer {
     box-sizing: border-box;
     display: flex;
     padding-bottom: 20px;
+    justify-content: center;
+
 
     div {
       padding-top: 5px;
@@ -275,6 +278,13 @@ footer {
 
   }
 
+  .gs-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 50px;
+  }
 
   #form-button {
     background-color: #C2D66F;

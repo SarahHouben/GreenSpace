@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const GreenSpace = require("../models/GreenSpace");
 const User = require("../models/User");
+const app = require('../app')
 
 // //PASSPORT METHOD
 const loginCheck = () => {
@@ -84,6 +85,7 @@ router.post('/new', (req, res, next) => {
 /*Get individual GreenSpace page */
 router.get('/:greenspaceId', (req, res, next) => {
   const greenspaceId = req.params.greenspaceId;
+  app.locals.spaceId = greenspaceId
   GreenSpace.findById(greenspaceId).then(greenspace => {
     res.render('greenspace', {
       user: req.user._id,

@@ -1,3 +1,7 @@
+<div class="search-container">
+
+
+
 <h1>Visit {{greenspace.name}} </h1>
 
 
@@ -17,8 +21,9 @@
 
   <button id="upload_greenspace_widget" class="cloudinary-button">Add an Image</button>
 
+
   {{#each image.image}}
-  <img class="profile-image" src="{{ this }}" alt="GreenSpace Image">
+  <img class="greenspace-image" src="{{ this }}" alt="GreenSpace Image">
   {{/each}}
 
 
@@ -46,3 +51,5 @@
 <button><a href="/greenspace/new">Add another GreenSpace</a></button>
 
 {{/with}}
+
+</div>
