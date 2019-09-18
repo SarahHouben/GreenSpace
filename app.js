@@ -203,6 +203,8 @@ app.use('/greenspace', greenspace)
 const image = require('./routes/image');
 app.use('/image', image)
 
+const comment = require('./routes/comment');
+app.use('/comment', comment)
 
 
 module.exports = app;

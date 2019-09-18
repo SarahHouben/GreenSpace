@@ -2,58 +2,96 @@
 
 
 
-<h2>Visit {{greenspace.name}} </h2>
+  <h2>Visit {{greenspace.name}} </h2>
 
 
-<div>
-  <h3>Tags for {{greenspace.name}}</h3>
-  <ul>
-    {{#each greenspace.tags}}
-    <li>
-      {{ this }}
-    </li>
-    {{/each}}
-  </ul>
-</div>
+  <div>
+    <h3>Tags for {{greenspace.name}}</h3>
+    <ul>
+      {{#each greenspace.tags}}
+      <li>
+        {{ this }}
+      </li>
+      {{/each}}
+    </ul>
+  </div>
 
-<div>
-  <h3>Gallery</h3>
-<div class="gallery-images">
-  {{#each images}}
-  <img class="greenspace-image" src="{{ this.image }}" alt="GreenSpace Image">
-  {{/each}}
-</div>
+  <div>
+    <h3>Gallery</h3>
+    <div class="gallery-images">
+      {{#each images}}
+      <img class="greenspace-image" src="{{ this.image }}" alt="GreenSpace Image">
+      {{/each}}
+    </div>
 
-<div class="gallery-button">
-  <button id="upload_greenspace_widget" class="cloudinary-button">Add an Image</button>
-</div>
+    <div class="gallery-button">
+      <button id="upload_greenspace_widget" class="cloudinary-button">Add an Image</button>
+    </div>
 
-</div>
-
-
-<div>
-  <h3>Comments</h3>
-
-<div class="comment-button">
-  <button id="add-comment">Add a Comment</button>
-</div>
-</div>
+  </div>
 
 
-<button>NAVIGATE TO{{greenspace.name}}</button>
+  <div>
+    <h3>Comments</h3>
+
+    <form action="/greenspace/GREENSPACEID" method="POST">
+
+      <input type="text" name="comment" id="comment" placeholder="Add your comment">
+      {{!-- <br><br>
+      <label for="rating">Rating (1 to 5): </label>
+      <input type="number" name="rating" id="rating" min="1" max="5"> --}}
+
+      <br><br>
+      <label for="rating">Rating of this Greenspace:</label>
+      <div class="select-rating">
+        <select name="rating" id="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <br><br>
+
+      <button id="add-comment">Add a Comment</button>
+
+    </form>
+
+  </div>
 
 
 
-<button><a href="/">Search for another GreenSpace</a></button>
 
-{{#with user}}
 
-<form action='/search' method="post">
-  <button><a href="/search/favourites/:id">Favorites</a></button>
-</form>
 
-<button><a href="/greenspace/new">Add another GreenSpace</a></button>
 
-{{/with}}
+
+
+
+
+
+
+
+
+
+
+
+  <button>NAVIGATE TO{{greenspace.name}}</button>
+
+
+
+  <button><a href="/">Search for another GreenSpace</a></button>
+
+  {{#with user}}
+
+  <form action='/search' method="post">
+    <button><a href="/search/favourites/:id">Favorites</a></button>
+  </form>
+
+  <button><a href="/greenspace/new">Add another GreenSpace</a></button>
+
+  {{/with}}
 
 </div>
