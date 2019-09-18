@@ -18,6 +18,10 @@ h3 {
   font-size: 1.2rem;
   font-weight: 500; }
 
+h4 {
+  font-size: 0.8rem;
+  font-weight: 500; }
+
 p {
   font-size: 1rem;
   line-height: 2rem; }
@@ -76,8 +80,60 @@ footer {
   flex-direction: column;
   height: calc(100vh - 150px); }
 
+.gm-style-iw-c {
+  border-radius: 70px !important;
+  border: 4px solid #619430;
+  box-shadow: 0 3px 4px 1px rgba(15, 51, 12, 0.3) !important; }
+
+.gm-style-iw-t::after {
+  border: 4px solid #619430;
+  z-index: -1; }
+
+.popup-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 13px;
+  box-sizing: border-box; }
+  .popup-section h4 {
+    color: #1c1c33;
+    text-align: center;
+    padding: 3px; }
+
+.popup-image {
+  height: 50px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 6%;
+  border: 3px solid #C2D66F;
+  margin: 3px;
+  box-sizing: border-box; }
+
+.popup-button {
+  background-color: #436623;
+  border: none;
+  border-radius: 3px;
+  color: rgba(229, 250, 211, 0.986);
+  cursor: pointer;
+  font-size: 0.8rem;
+  height: 23px;
+  width: auto;
+  padding: 3px 5px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  transition: all 0.3s ease 0s;
+  border: 2px solid #C2D66F; }
+
+.popup-button:hover {
+  background-color: #C2D66F;
+  color: #436623;
+  transition: all 0.3s ease 0s;
+  border: 2px solid #436623; }
+
 .index {
-  background-image: url("/images/index_background4.jpg");
+  background-image: url("  https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568820044/GreenSpace/index_background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -223,6 +279,7 @@ footer {
 .user-image-comment {
   height: 50px;
   width: 50px;
+  object-fit: cover;
   border-radius: 50%;
   border: 2px solid #436623; }
 
@@ -266,9 +323,51 @@ footer {
   transition: all 0.3s ease 0s;
   box-shadow: none; }
 
+.favourite-button {
+  margin: 50px 0;
+  position: relative;
+  display: block;
+  color: black;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid red;
+  border-left: 100px solid transparent;
+  transform: rotate(35deg); }
+
+.favourite-button:before {
+  border-bottom: 80px solid red;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -45px;
+  left: -65px;
+  display: block;
+  content: 'Favourite';
+  transform: rotate(-35deg); }
+
+.favourite-button:after {
+  position: absolute;
+  display: block;
+  color: black;
+  top: 3px;
+  left: -105px;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid red;
+  border-left: 100px solid transparent;
+  transform: rotate(-70deg);
+  content: 'Favourite'; }
+
 .profile-image {
   height: 50px;
-  width: 50px; }
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #436623; }
 
 .cloudinary-button {
   background-color: #C2D66F !important;
@@ -295,9 +394,5 @@ footer {
   text-align: center;
   color: #bd2c19;
   font-weight: 500; }
-
-.popup-image {
-  height: 20px;
-  width: 20px; }
 
 /*# sourceMappingURL=style.css.map */
