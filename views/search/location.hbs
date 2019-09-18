@@ -48,17 +48,20 @@
       let name = greenspaceData[0].name;
       let id = greenspaceData[0]._id;
       if (imageData.length === 0) {
-        img = "https://middlesbrough.gov.uk/sites/default/files/Albert_Park_2008.jpg"
+        img = "https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568704142/GreenSpace/default_greenspace_image.jpg"
       } else {
         img = imageData[0].image;
       };
 
 
 
-      var contentString = `<h1>${name}</h1> <a href="/greenspace/${id}"> Go to Greenspace</a><img class="popup-image" src=${img} alt="">`;
+      var contentString = `<div class="popup-section"><h4>${name}</h4><img class="popup-image" src=${img} alt="GreenSpace"><a class="popup-link" href="/greenspace/${id}"><button class="popup-button">More Info</button></a></div>`;
 
       var infowindow = new google.maps.InfoWindow({
-        content: contentString
+        content: contentString,
+        maxWidth: 150,
+        maxHeight:200,
+        backgroundColor:"1c1c33"
       });
 
       markerUnit.addListener('click', () => infowindow.open(map, markerUnit));
@@ -74,8 +77,9 @@
           lat: 52.520008,
           lng: 13.404954
         };
+        let styling = `<img src="https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png" >`
         infoWindow.setPosition(pos);
-        infoWindow.setContent('<img src="https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png" >');
+        infoWindow.setContent(styling);
         infoWindow.open(map);
         map.setCenter(pos);
       }, function () {
