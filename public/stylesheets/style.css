@@ -217,6 +217,12 @@ footer {
   padding-top: 10px;
   font-weight: 500; }
 
+.user-image-comment {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid #436623; }
+
 #add-comment {
   background-color: #C2D66F;
   height: 40px;
