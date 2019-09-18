@@ -4,14 +4,14 @@ const Schema = mongoose.Schema;
 const commentSchema = new Schema({
   comment: String,
   rating: Number,
-  greenspace: [{
+  greenspace: {
     type: Schema.Types.ObjectId,
     ref: 'GreenSpace'
-  }],
-  creator: [{
+  },
+  creator: {
     type: Schema.Types.ObjectId,
     ref: 'User'
-  }],
+  },
 }, {
   timestamps: {
     createdAt: 'created_at',

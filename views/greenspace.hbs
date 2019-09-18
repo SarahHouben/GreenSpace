@@ -2,11 +2,11 @@
 
 
 
-<h1>Visit {{greenspace.name}} </h1>
+<h2>Visit {{greenspace.name}} </h2>
 
 
 <div>
-  <h2>Tags for {{greenspace.name}}</h2>
+  <h3>Tags for {{greenspace.name}}</h3>
   <ul>
     {{#each greenspace.tags}}
     <li>
@@ -17,22 +17,26 @@
 </div>
 
 <div>
-  <h2>Gallery</h2>
-
-  <button id="upload_greenspace_widget" class="cloudinary-button">Add an Image</button>
-
-{{greenspace.images}}
-  {{#each image.image}}
-  <img class="greenspace-image" src="{{ this }}" alt="GreenSpace Image">
+  <h3>Gallery</h3>
+<div class="gallery-images">
+  {{#each images}}
+  <img class="greenspace-image" src="{{ this.image }}" alt="GreenSpace Image">
   {{/each}}
+</div>
 
+<div class="gallery-button">
+  <button id="upload_greenspace_widget" class="cloudinary-button">Add an Image</button>
+</div>
 
 </div>
 
 
 <div>
-  <h2>Comments</h2>
-  <button>ADD COMMENT</button>
+  <h3>Comments</h3>
+
+<div class="comment-button">
+  <button id="add-comment">Add a Comment</button>
+</div>
 </div>
 
 

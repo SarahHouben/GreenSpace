@@ -15,7 +15,12 @@ h1 {
 }
 
 h2 {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
@@ -239,12 +244,14 @@ footer {
     padding-bottom: 10px;
 
     label {
-      font-style: italic
+      font-style: italic;
+      padding-right: 10px;
     }
 
     input {
       border-radius: 6px;
       text-align: center;
+      width: 50%;
     }
   }
 
@@ -283,8 +290,9 @@ footer {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding-top: 50px;
+    padding-top: 5vh;
   }
+
 
   #form-button {
     background-color: #C2D66F;
@@ -304,8 +312,30 @@ footer {
     border-color: #494949;
     transition: all 0.3s ease 0s;
     box-shadow: none;
+
+
   }
 
+  .form-error {
+    text-align: center;
+    color: #bd2c19;
+    padding-top: 10px;
+  font-weight: 500;
+  }
+
+}
+
+
+//#####################  GreenSpace PROFILE  ############################
+
+.gallery-images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.greenspace-image {
+  height: 50px;
+  width: 50px;
 }
 
 //#####################  USER PROFILE  ############################

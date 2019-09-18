@@ -142,10 +142,10 @@ const formCheck = (event) => {
   formIDs.forEach(ids => {
     if (document.getElementById(ids).value === "" || document.getElementById(ids).value === undefined) {
       event.preventDefault();
-      document.querySelector(".form-error").innerText = "Please fill out all the info"
+      document.querySelector(".form-error").innerText = "Please choose a name and set the marker location."
     } else if (!tagArray.includes(true)) {
       event.preventDefault();
-      document.querySelector(".form-error").innerText = "Please click at least one tag out all the info"
+      document.querySelector(".form-error").innerText = "Please select at least one tag."
     } else {
       document.getElementById("form-button").setAttribute = ("type", "submit")
     }
