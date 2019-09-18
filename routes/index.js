@@ -20,7 +20,9 @@ const User = require("../models/User");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  console.log(req.user)
+  console.log('user:', req.user);
+  console.log('user:', req.session.user);
+
   res.render('index', {
     user: req.user
   });

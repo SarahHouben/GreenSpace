@@ -56,7 +56,7 @@ router.post("/signup", (req, res, next) => {
   // Check for min. password length
   if (password.length < 8) {
     res.render("auth/signup", {
-      message: "Your password must have at least 6 characters."
+      message: "Your password must have at least 8 characters."
     });
     return;
   }
@@ -97,8 +97,13 @@ router.post("/signup", (req, res, next) => {
     });
 
     newUser.save()
-      .then(() => {
-        res.redirect("/");
+      .then((user) => {
+        // req.user = user;
+        console.log(user)
+        res.redirect("/", );
+        // res.render('index', {
+        //   user: req.user
+        // });
       })
       .catch(err => {
         res.render("auth/signup", {
@@ -108,9 +113,20 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
+
+
+
+// router.get("/logout", (req, res) => {
+//   req.logout();
+//   res.redirect("/");
+// });
+
+
 router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("/");
+  req.session.destroy((err) => {
+    if (err) next(err);
+    else res.redirect("/");
+  });
 });
 
 

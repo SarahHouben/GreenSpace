@@ -59,7 +59,7 @@
 
 
       console.log(img)
-      var contentString = `<h1>${name}</h1> <a href="/greenspace/${id}"> Go to Greenspace</a><img src=${img} alt="">`;
+      var contentString = `<div class="popup-section"><h4>${name}</h4><img class="popup-image" src=${img} alt="GreenSpace"><a class="popup-link" href="/greenspace/${id}"><button class="popup-button">More Info</button></a></div>`;
 
       var infowindow = new google.maps.InfoWindow({
         content: contentString

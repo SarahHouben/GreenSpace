@@ -48,8 +48,12 @@ var myWidget = cloudinary.createUploadWidget({
       //import axios
       let profileImage = result.info.secure_url;
       axios.post("/user/:userId/profile-image", {
-        profileImage
-      });
+          profileImage
+        })
+        .then(res => {
+          let profileImage = document.querySelector('.profile-image')
+          profileImage.src = result.info.secure_url;
+        });
     }
   }
 );

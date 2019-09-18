@@ -24,6 +24,7 @@ const loginCheck = () => {
 
 //####  Get "Create New GreenSpace" page  #### //
 router.get('/new', (req, res, next) => {
+  console.log(req.user)
   res.render('newGreenSpace', {
     user: req.user,
   });
@@ -33,7 +34,8 @@ router.get('/new', (req, res, next) => {
 //####  Create New GreenSpace Document  #### //
 
 router.post('/new', (req, res, next) => {
-  console.log(req.body)
+  // console.log(req.body)
+  // console.log(req.user)
   const {
     name,
     creator,
@@ -67,7 +69,7 @@ router.post('/new', (req, res, next) => {
 //####  Create New Comment Document  #### //
 
 router.post(`/:id`, (req, res, next) => {
-// console.log(req.body)
+  // console.log(req.body)
   const comment = req.body.comment;
   const greenspace = req.params.id;
   const creator = req.user._id;
@@ -140,16 +142,23 @@ router.get('/:greenspaceId', (req, res, next) => {
 });
 
 
-router.post('/favorite/:id',(req,res,next) =>{
-User.findByIdAndUpdate({_id:req.user._id},{ $push:{favourites:req.params.id}},{new:true}).then(found =>{
-console.log(found);
-}
-),
-  console.log("dadasdasdassaddasdsadasdsasda" ,req.user._id)
-  
-  
- 
- 
+router.post('/favorite/:id', (req, res, next) => {
+  User.findByIdAndUpdate({
+      _id: req.user._id
+    }, {
+      $push: {
+        favourites: req.params.id
+      }
+    }, {
+      new: true
+    }).then(found => {
+      console.log(found);
+    }),
+    console.log("dadasdasdassaddasdsadasdsasda", req.user._id)
+
+
+
+
 })
 
 module.exports = router;
