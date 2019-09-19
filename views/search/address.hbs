@@ -58,15 +58,26 @@
       };
 
 
-      console.log(img)
+      
       var contentString = `<div class="popup-section"><h4>${name}</h4><img class="popup-image" src=${img} alt="GreenSpace"><a class="popup-link" href="/greenspace/${id}"><button class="popup-button">More Info</button></a></div>`;
 
       var infowindow = new google.maps.InfoWindow({
         content: contentString
       });
-
-      markerUnit.addListener('click', () => infowindow.open(map, markerUnit));
+       var toggle = true;
+       markerUnit.addListener('click', () =>{ 
+       if(toggle){
+      infowindow.open(map, markerUnit)
+      toggle = false;
+      }else{
+        infowindow.close(map, markerUnit)
+        toggle =true;
+      }
+       
+       });
+       
     })
+    
 
 
 
@@ -78,8 +89,11 @@
           lat: {{ data.lat }},
         lng: {{ data.lng }}
   };
+   let img = `{{{ user.image }}}`
+      //========================= style profile image with class ===================================
+        let styling = `<img src="${img}" >`
   infoWindow.setPosition(pos);
-  infoWindow.setContent('<img src="https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png" >');
+  infoWindow.setContent(styling);
   infoWindow.open(map);
   map.setCenter(pos);
     }, function () {

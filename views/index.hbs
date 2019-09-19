@@ -12,9 +12,9 @@
 
   <div class="index-buttons">
 
-    <form action='/search/location' method="post">
-      <button><a href="/search/location">Find GreenSpaces Near You</a></button>
-    </form>
+    
+    <button><a href="/search/location">Find GreenSpaces Near You</a></button> 
+    
 
 
     <form class="id-search" action='/search/address' method="post">
@@ -26,9 +26,9 @@
 
 
     {{#with user}}
-    <form action='/search' method="post">
-      <button><a href="/search/favourites/{{ id }}">See Your Favourites</a></button>
-    </form>
+  
+      <button><a href="/search/favourites/{{ _id }}">Favourites</a></button>
+    
     {{/with}}
 
   </div>
