@@ -96,7 +96,7 @@ service.getDistanceMatrix(
 
 
       
-      var contentString = `<div class="popup-section"><h4>${name}</h4><img class="popup-image" src=${img} alt="GreenSpace"><a class="popup-link" href="/greenspace/${id}"><button class="popup-button">More Info</button></a><button class="popup-button"><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin={{ data.lat }},{{ data.lng }}&destination=${greenLat},${greenLng}&travelmode=walking">Navigate</a> </button></div><p>Distance:${dist}</p><p>Time:${time}</p>`;
+      var contentString = `<div class="popup-section"><h4>${name}</h4><img class="popup-image" src=${img} alt="GreenSpace"><a class="popup-link" href="/greenspace/${id}"><div class="pop-btn"><button class="popup-button">More Info</button></a><button class="popup-button"><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin={{ data.lat }},{{ data.lng }}&destination=${greenLat},${greenLng}&travelmode=walking">Navigate</a></button> </div></div><div class="popup-div"><p>Distance: ${dist}</p><p>Time: ${time}</p></div>`;
 
       var infowindow = new google.maps.InfoWindow({
         content: contentString,
