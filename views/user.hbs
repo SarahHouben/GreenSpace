@@ -1,28 +1,27 @@
-<div class="search-container">
+<div class="search-container user-profile">
 
-  <h1>Welcome back {{user.username}} </h1>
+  <h2>Welcome back {{user.username}} </h2>
 
-  <button id="upload_widget" class="cloudinary-button">Change profile photo</button>
-  <img class="profile-image" src="{{user.image}}" alt="Profile Image">
-
-
-  <p> You have already added //NUMBER OF ADDED GREENSPACES. Length of greenspace array with their id// GreenSpaces.</p>
-
+  <div class="user-image-div">
+    <img class="profile-image" src="{{user.image}}" alt="Profile Image">
+    <button id="upload_widget" class="cloudinary-button">Change profile photo</button>
+  </div>
 
   <button><a href="/greenspace/new">Add another GreenSpace</a></button>
 
-  <h2>Your favourite GreenSpaces</h2>
-  
-  <ul>
+  <div class="favourite-div">
+
+    <h3>Your favourite GreenSpaces:</h3>
+
+    <ul>
       {{#each greenSpace}}
       <li>
-      <a href="http://localhost:3000/greenspace/{{ this._id }}">{{ this.name }}</a>
+        <a href="http://localhost:3000/greenspace/{{ this._id }}">{{ this.name }}</a>
       </li>
       {{/each}}
     </ul>
-  
 
-  <h2>Your images</h2>
-  //ADD CAROUSEL.//
+  </div>
+
 
 </div>

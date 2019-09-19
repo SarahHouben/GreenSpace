@@ -16,7 +16,9 @@ GreenSpace.find({_id:{$in:user.favourites}},{
   
   res.render('user', {
     user: user,
-    greenSpace:greenSpace
+    greenSpace:greenSpace,
+    cloudName: process.env.CLOUDINARY_CLOUDNAME,
+    uploadPreset: process.env.CLOUDINARY_UPLOADPRESET
   });
 })
 
@@ -41,6 +43,8 @@ router.post('/:userId/profile-image', (req, res, next) => {
       console.log(err);
     })
 });
+
+
 // //Profile Photo
 // router.post('/:userId/profile-image', (req, res, next) => {
 //   const profileImage = req.body.profileImage;

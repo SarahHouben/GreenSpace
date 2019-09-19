@@ -12,12 +12,9 @@ const axios = require("axios");
 // });
 
 router.get("/location", (req, res, next) => {
-  GreenSpace.find(
-    {},
-    {
+  GreenSpace.find({}, {
       location: 1
-    }
-  )
+    })
     .then(locations => {
       let latLongArray = locations.map(obj => {
         return obj; // vrati object da bi dobio i ID
@@ -32,18 +29,17 @@ router.get("/location", (req, res, next) => {
 });
 
 router.post("/address", (req, res, next) => {
-  const { address } = req.body;
+  const {
+    address
+  } = req.body;
   axios
     .get(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${address}berlin&key=AIzaSyDYLwxbUeRyQSlAjR9qLXh3pnr4TFCAIW0`
     )
     .then(loc => {
-      GreenSpace.find(
-        {},
-        {
-          location: 1
-        }
-      ).then(locations => {
+      GreenSpace.find({}, {
+        location: 1
+      }).then(locations => {
         // console.log("here is locations",locations)
         let latLongArray = locations.map(obj => {
           return obj;
@@ -63,7 +59,10 @@ router.post("/address", (req, res, next) => {
 router.get("/address", (req, res, next) => {
   GreenSpace.find({}).then(places => {
     Image.find({}).then(images => {
-      let newObj = { places, images };
+      let newObj = {
+        places,
+        images
+      };
       // console.log(newObj)
       res.json(newObj);
     });
@@ -73,7 +72,10 @@ router.get("/address", (req, res, next) => {
 router.get("/location/test", (req, res, next) => {
   GreenSpace.find({}).then(places => {
     Image.find({}).then(images => {
-      let newOb = { places, images };
+      let newOb = {
+        places,
+        images
+      };
 
       res.json(newOb);
     });
@@ -84,13 +86,14 @@ router.get("/favourites/:userId", (req, res, next) => {
   const userId = req.user._id;
   User.findById(userId).then(user => {
     console.log(user);
-    GreenSpace.find(
-      { _id: { $in: user.favourites } },
-      {
-        location: 1,
-        name: 1
+    GreenSpace.find({
+      _id: {
+        $in: user.favourites
       }
-    ).then(greenSpace => {
+    }, {
+      location: 1,
+      name: 1
+    }).then(greenSpace => {
       res.render("search/favourites", {
         user: user,
         array: JSON.stringify(greenSpace)

@@ -43,7 +43,8 @@
       <ul class="comment-item">
         {{#each comments}}
         <li class="comment-item"> {{ this.comment }}</li>
-        <img class="user-image-comment" src="{{../user.image}}" alt="User profile">
+        {{!-- <img class="user-image-comment" src="{{../user.image}}" alt="User profile"> --}}
+        <img class="user-image-comment" src="{{this.creator.image}}" alt="User profile">
         {{/each}}
       </ul>
     </div>
@@ -119,3 +120,7 @@
     axios.post(`/greenspace/favorite/${value}`, { value })
   }
 </script> --}}
+
+<script>
+  console.log('reloaded')
+</script>

@@ -1,5 +1,3 @@
-// require("dotenv").config();
-
 document.addEventListener(
   "DOMContentLoaded",
   () => {
@@ -13,8 +11,8 @@ document.addEventListener(
 var myWidget = cloudinary.createUploadWidget({
     cloudName: "dmlqhwwfc",
     uploadPreset: "umqopfpp",
-    // cloudName: process.env.CLOUDINARY_CLOUDNAME,
-    // uploadPreset: process.env.CLOUDINARY_UPLOADPRESET,
+    /*    cloudName: {{cloudName}},
+      uploadPreset: {{uploadPreset}}, */
     sources: ["local", "url", "camera", "facebook", "instagram"],
     styles: {
       palette: {
