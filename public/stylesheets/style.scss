@@ -9,41 +9,49 @@
   font: 16px 'Roboto', 'Lato', "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-// .gm-style-iw-d {
-//   overflow: auto !important;
-// }
-
-// .gm-style-iw {
-//   padding: 0 !important;
-// }
-
-// .popup-profile-image {
-//   margin-bottom: -3px;
-// }
-
 h1 {
   font-size: 2.3rem;
   font-weight: 500;
+
+  @media (max-width: 500px) {
+    font-size: 1.9rem;
+  }
 }
 
 h2 {
   font-size: 1.8rem;
   font-weight: 500;
+
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+  }
 }
 
 h3 {
   font-size: 1.2rem;
   font-weight: 500;
+
+  @media (max-width: 500px) {
+    font-size: 0.9rem;
+  }
 }
 
 h4 {
   font-size: 0.8rem;
   font-weight: 500;
+
+  @media (max-width: 500px) {
+    font-size: 0.6rem;
+  }
 }
 
 p {
   font-size: 1rem;
   line-height: 2rem;
+
+  @media (max-width: 500px) {
+    font-size: 0.7rem;
+  }
 }
 
 
@@ -70,6 +78,15 @@ p {
     padding-left: 4vw;
     -webkit-filter: drop-shadow(5px 5px 5px #000000);
     filter: drop-shadow(4px 4px 5px #000000);
+
+
+
+    @media (max-width: 500px) {
+      padding-left: 0;
+      height: 40px;
+      width: 40px;
+    }
+
   }
 
 
@@ -83,6 +100,10 @@ p {
     font-size: 1.2rem;
     -webkit-filter: drop-shadow(5px 5px 5px #000000);
     filter: drop-shadow(4px 4px 5px #000000);
+
+    @media (max-width: 500px) {
+      font-size: 1rem;
+    }
   }
 
 
@@ -127,6 +148,12 @@ footer {
     font-size: 0.9rem;
     -webkit-filter: drop-shadow(5px 5px 5px #000000);
     filter: drop-shadow(4px 4px 5px #000000);
+
+    @media (max-width: 500px) {
+      font-size: 0.7rem;
+    }
+
+
   }
 }
 
@@ -1131,7 +1158,3 @@ footer {
     padding: 3vh;
   }
 }
-
-
-// var contentString = `<div class="popup-section"><h4>${name}</h4><img class="popup-image" src=${img} alt="GreenSpace"><a class="popup-link" href="/greenspace/${id}"><button class="popup-button">More Info</button></a><button class="popup-button"><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin={{ data.lat }},{{ data.lng }}&destination=${greenLat},${greenLng}&travelmode=walking">Navigate</a></button><button>Distance:${dist}</button><button>Time:${time}</button></div>`;
-// 

@@ -9,22 +9,37 @@
 h1 {
   font-size: 2.3rem;
   font-weight: 500; }
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 1.9rem; } }
 
 h2 {
   font-size: 1.8rem;
   font-weight: 500; }
+  @media (max-width: 500px) {
+    h2 {
+      font-size: 1.5rem; } }
 
 h3 {
   font-size: 1.2rem;
   font-weight: 500; }
+  @media (max-width: 500px) {
+    h3 {
+      font-size: 0.9rem; } }
 
 h4 {
   font-size: 0.8rem;
   font-weight: 500; }
+  @media (max-width: 500px) {
+    h4 {
+      font-size: 0.6rem; } }
 
 p {
   font-size: 1rem;
   line-height: 2rem; }
+  @media (max-width: 500px) {
+    p {
+      font-size: 0.7rem; } }
 
 .navbar {
   display: flex;
@@ -43,6 +58,11 @@ p {
     padding-left: 4vw;
     -webkit-filter: drop-shadow(5px 5px 5px #000000);
     filter: drop-shadow(4px 4px 5px #000000); }
+    @media (max-width: 500px) {
+      .navbar #greenspace-logo {
+        padding-left: 0;
+        height: 40px;
+        width: 40px; } }
   .navbar a {
     text-decoration: none;
     font-weight: 700;
@@ -52,6 +72,9 @@ p {
     font-size: 1.2rem;
     -webkit-filter: drop-shadow(5px 5px 5px #000000);
     filter: drop-shadow(4px 4px 5px #000000); }
+    @media (max-width: 500px) {
+      .navbar a {
+        font-size: 1rem; } }
   .navbar ul {
     display: flex;
     flex-direction: row;
@@ -78,6 +101,9 @@ footer {
     font-size: 0.9rem;
     -webkit-filter: drop-shadow(5px 5px 5px #000000);
     filter: drop-shadow(4px 4px 5px #000000); }
+    @media (max-width: 500px) {
+      footer p {
+        font-size: 0.7rem; } }
 
 .search-container {
   display: flex;
