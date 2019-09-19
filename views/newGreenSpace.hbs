@@ -292,13 +292,14 @@
           
 
         });
-
-        })
-
         google.maps.event.addListener(marker, 'dragend', function (event) {
           document.getElementById("lat").value = this.getPosition().lat();
           document.getElementById("lng").value = this.getPosition().lng();
+          console.log(this.getPosition().lat())
         });
+
+        })
+
       }
 
     </script>
