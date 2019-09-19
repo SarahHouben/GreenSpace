@@ -708,16 +708,32 @@ footer {
 
 .favourite-div ul {
   padding-bottom: 2vh;
-  padding-left: 40px;
-  color: #436623; }
+  padding-left: 10px;
+  color: #436623;
+  list-style: none; }
 
 .favourite-div li {
-  padding: 10px 0; }
+  position: relative;
+  padding-left: 30px;
+  line-height: 2.2rem; }
+
+.favourite-div li:before {
+  content: '';
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background-image: url("/images/star_golden.png");
+  background-size: cover;
+  background-position: center;
+  left: 0;
+  top: 45.3%;
+  transform: translateY(-50%); }
 
 .favourite-div a {
   text-decoration: none;
   color: #436623;
-  transition: all 0.3s ease 0s; }
+  transition: all 0.3s ease 0s;
+  padding-left: 5px; }
 
 .favourite-div a:hover {
   text-decoration: underline;
