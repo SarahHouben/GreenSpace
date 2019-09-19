@@ -62,7 +62,6 @@ router.post("/address", (req, res, next) => {
 
 router.get("/address", (req, res, next) => {
   GreenSpace.find({}).then(places => {
-    
     Image.find({}).then(images => {
       let newObj = { places, images };
       // console.log(newObj)
@@ -70,12 +69,32 @@ router.get("/address", (req, res, next) => {
     });
   });
 });
+
 router.get("/location/test", (req, res, next) => {
   GreenSpace.find({}).then(places => {
     Image.find({}).then(images => {
       let newOb = { places, images };
-      
+
       res.json(newOb);
+    });
+  });
+});
+
+router.get("/favourites/:userId", (req, res, next) => {
+  const userId = req.user._id;
+  User.findById(userId).then(user => {
+    console.log(user);
+    GreenSpace.find(
+      { _id: { $in: user.favourites } },
+      {
+        location: 1,
+        name: 1
+      }
+    ).then(greenSpace => {
+      res.render("search/favourites", {
+        user: user,
+        array: JSON.stringify(greenSpace)
+      });
     });
   });
 });
