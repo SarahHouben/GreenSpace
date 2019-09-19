@@ -58,26 +58,41 @@ router.post("/address", (req, res, next) => {
 
 router.get("/address", (req, res, next) => {
   GreenSpace.find({}).then(places => {
+    User.findById(req.user._id).then(user =>{
     Image.find({}).then(images => {
+<<<<<<< HEAD
       let newObj = {
         places,
         images
       };
+=======
+      let newObj = { places, images, user};
+>>>>>>> user-image
       // console.log(newObj)
       res.json(newObj);
     });
   });
 });
+});
 
 router.get("/location/test", (req, res, next) => {
   GreenSpace.find({}).then(places => {
+<<<<<<< HEAD
     Image.find({}).then(images => {
       let newOb = {
         places,
         images
       };
+=======
+    User.findById(req.user._id).then(user =>{
+      Image.find({}).then(images => {
+        let newOb = { places, images,user };
+        
 
-      res.json(newOb);
+        res.json(newOb);
+    })
+>>>>>>> user-image
+
     });
   });
 });

@@ -478,6 +478,7 @@ footer {
   transform: scale(1.2);
   transition-duration: .3s; }
 
+<<<<<<< HEAD
 .user-profile {
   align-items: center; }
 
@@ -485,6 +486,8 @@ footer {
   display: flex;
   align-items: center; }
 
+=======
+>>>>>>> user-image
 .profile-image {
   min-height: 50px;
   min-width: 50px;

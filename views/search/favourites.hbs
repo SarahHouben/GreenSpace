@@ -1,7 +1,9 @@
 <div id="map" class="search-map"></div>
+  
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYLwxbUeRyQSlAjR9qLXh3pnr4TFCAIW0&callback=initMap">
   </script>
+    
 <script>
   // Note: This example requires that you consent to location sharing when
   // prompted by your browser. If you see the error "The Geolocation service
@@ -13,6 +15,7 @@
       center: { lat: 52.520008, lng: 13.404954 },
       zoom: 15
     });
+    
     var image = 'https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png'
     let data = {{{ array }}};
 console.log(data)
@@ -62,7 +65,17 @@ console.log(data)
         backgroundColor:"1c1c33"
       });
 
-      markerUnit.addListener('click', () => infowindow.open(map, markerUnit));
+      var toggle = true;
+       markerUnit.addListener('click', () =>{ 
+       if(toggle){
+      infowindow.open(map, markerUnit)
+      toggle = false;
+      }else{
+        infowindow.close(map, markerUnit)
+        toggle =true;
+      }
+       
+       });
     })
 
 
@@ -75,7 +88,9 @@ console.log(data)
           lat: 52.520008,
           lng: 13.404954
         };
-        let styling = `<img src="https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png" >`
+        let img = `{{{ user.image }}}`
+      //========================= style profile image with class ===================================
+        let styling = `<img class="popup-image" src="${img}" >`
         infoWindow.setPosition(pos);
         infoWindow.setContent(styling);
         infoWindow.open(map);
