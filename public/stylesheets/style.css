@@ -470,17 +470,10 @@ footer {
     width: 40px;
     cursor: pointer; }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 80a5c855b2304181ea8facca9e3ee48b7ef69f98
-=======
 #star-favourite:hover img {
   transform: scale(1.2);
   transition-duration: .3s; }
 
->>>>>>> styling-authforms
->>>>>>> 6d4c7b2ebc22bda24165321532aeeb2412358897
 .profile-image {
   height: 50px;
   width: 50px;
