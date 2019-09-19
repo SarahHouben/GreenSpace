@@ -72,21 +72,23 @@
 
 
 
-
-
-
+<div class="gs-profile-btns">
 
   <button class="profile-button"><a target="_blank"
       href="https://www.google.com/maps/dir/?api=1&origin=&destination={{greenspace.location.lat}},{{greenspace.location.lng}}&travelmode=walking">Navigate
       to {{greenspace.name}}</a> </button>
-
-
 
   <button class="profile-button"><a href="/">Search for another GreenSpace</a></button>
 
   {{#with user}}
   <button class="profile-button"><a href="/greenspace/new">Add a GreenSpace</a></button>
   {{/with}}
+
+
+</div>
+
+
+
 
 
 
