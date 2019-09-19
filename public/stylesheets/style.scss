@@ -680,21 +680,28 @@ footer {
 
   h2 {
     padding: 5vh 0 2vh 0;
+    text-align: center;
   }
 }
 
 .tag-div {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   ul {
     padding-bottom: 2vh;
-    padding-left: 40px;
-    color: #1C1B33
+    padding-left: 20%;
+    color: #1C1B33;
+    width: 80%;
   }
 
   li {
     padding: 3px 0;
     width: 33%;
     float: left;
+    max-width: 300px;
   }
 }
 
@@ -857,19 +864,37 @@ footer {
 
 .gs-profile-btns {
   display: flex;
+  width: 100vw;
+  justify-content: center;
+  // align-items: center;
+}
+
+.nav-btn {
+  div {
+    display: flex;
+    align-items: center;
+
+  }
+
+
+  img {
+    height: 30px;
+    width: 30px;
+    padding-left: 5px;
+  }
 }
 
 .profile-button {
   background-color: #C2D66F;
   min-height: 40px;
-  width: 10vw;
+  width: 13vw;
   color: #436623;
   border: 4px solid #619430;
   border-radius: 6px;
   display: inline-block;
   transition: all 0.3s ease 0s;
-  line-height: 0;
-  padding: 3px 0;
+  padding: 3px 3px;
+  margin: 7vh 20px;
 
   a {
     text-decoration: none;
@@ -896,6 +921,7 @@ footer {
 
   h2 {
     padding: 5vh 0 2vh 0;
+    text-align: center;
   }
 
   button {
@@ -939,6 +965,7 @@ footer {
     color: #1C1B33;
     padding-bottom: 2vh;
     text-decoration: underline;
+    text-align: center;
   }
 
   ul {

@@ -440,17 +440,24 @@ footer {
   display: flex;
   align-items: center; }
   .greenspace-profile h2 {
-    padding: 5vh 0 2vh 0; }
+    padding: 5vh 0 2vh 0;
+    text-align: center; }
 
-.tag-div ul {
-  padding-bottom: 2vh;
-  padding-left: 40px;
-  color: #1C1B33; }
-
-.tag-div li {
-  padding: 3px 0;
-  width: 33%;
-  float: left; }
+.tag-div {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .tag-div ul {
+    padding-bottom: 2vh;
+    padding-left: 20%;
+    color: #1C1B33;
+    width: 80%; }
+  .tag-div li {
+    padding: 3px 0;
+    width: 33%;
+    float: left;
+    max-width: 300px; }
 
 .fav-form {
   display: flex;
@@ -566,19 +573,30 @@ footer {
   box-shadow: none !important; }
 
 .gs-profile-btns {
-  display: flex; }
+  display: flex;
+  width: 100vw;
+  justify-content: center; }
+
+.nav-btn div {
+  display: flex;
+  align-items: center; }
+
+.nav-btn img {
+  height: 30px;
+  width: 30px;
+  padding-left: 5px; }
 
 .profile-button {
   background-color: #C2D66F;
   min-height: 40px;
-  width: 10vw;
+  width: 13vw;
   color: #436623;
   border: 4px solid #619430;
   border-radius: 6px;
   display: inline-block;
   transition: all 0.3s ease 0s;
-  line-height: 0;
-  padding: 3px 0; }
+  padding: 3px 3px;
+  margin: 7vh 20px; }
   .profile-button a {
     text-decoration: none;
     color: #436623;
@@ -594,7 +612,8 @@ footer {
 .user-profile {
   align-items: center; }
   .user-profile h2 {
-    padding: 5vh 0 2vh 0; }
+    padding: 5vh 0 2vh 0;
+    text-align: center; }
   .user-profile button {
     margin: 3vh 0;
     box-sizing: border-box; }
@@ -625,7 +644,8 @@ footer {
 .favourite-div h3 {
   color: #1C1B33;
   padding-bottom: 2vh;
-  text-decoration: underline; }
+  text-decoration: underline;
+  text-align: center; }
 
 .favourite-div ul {
   padding-bottom: 2vh;
