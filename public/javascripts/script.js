@@ -11,23 +11,21 @@ document.addEventListener(
 var myWidget = cloudinary.createUploadWidget({
     cloudName: "dmlqhwwfc",
     uploadPreset: "umqopfpp",
-    /*    cloudName: {{cloudName}},
-      uploadPreset: {{uploadPreset}}, */
     sources: ["local", "url", "camera", "facebook", "instagram"],
     styles: {
       palette: {
         window: "#F5F5F5",
         sourceBg: "#FFFFFF",
         windowBorder: "#74A772",
-        tabIcon: "#3BA736",
+        tabIcon: "#65A747",
         inactiveTabIcon: "#91B390",
         menuIcons: "#3BA736",
         link: "#65A747",
-        action: "#00C710",
+        action: "#65A747",
         inProgress: "#0194c7",
         complete: "#74A772",
         error: "#c43737",
-        textDark: "#6D5243",
+        textDark: "#65A747",
         textLight: "#FFFFFF"
       },
       fonts: {
@@ -78,15 +76,15 @@ var greenSpaceWidget = cloudinary.createUploadWidget({
         window: "#F5F5F5",
         sourceBg: "#FFFFFF",
         windowBorder: "#74A772",
-        tabIcon: "#3BA736",
+        tabIcon: "#65A747",
         inactiveTabIcon: "#91B390",
         menuIcons: "#3BA736",
         link: "#65A747",
-        action: "#00C710",
+        action: "#65A747",
         inProgress: "#0194c7",
         complete: "#74A772",
         error: "#c43737",
-        textDark: "#6D5243",
+        textDark: "#65A747",
         textLight: "#FFFFFF"
       },
       fonts: {
@@ -99,15 +97,18 @@ var greenSpaceWidget = cloudinary.createUploadWidget({
     }
   },
   (error, result) => {
+    console.log(result.event)
     if (!error && result && result.event === "success") {
       console.log("Done! Here is the image info: ", result.info);
       // send secure url to the backend to the route /greenspace:id
       //import axios
       let greenSpaceImage = result.info.secure_url;
-      // console.log(greenSpaceImage);
       axios.post("/image/greenspace-image", {
         greenSpaceImage
       })
+    }
+    if (result && result.event === "close") {
+      window.location.reload()
     }
   }
 );
@@ -157,7 +158,7 @@ const commentFormCheck = event => {
   if (document.getElementById(commentId).value === "") {
     event.preventDefault();
     document.querySelector(".comment-error").innerText =
-      "Please add a comment.";
+      "Please type your comment.";
   } else {
     document.getElementById("form-button").setAttribute = ("type", "submit");
   }

@@ -1,12 +1,11 @@
-<div class="search-container">
+<div class="search-container greenspace-profile">
 
 
 
   <h2>Visit {{greenspace.name}} </h2>
 
 
-  <div>
-    <h3>Tags for {{greenspace.name}}</h3>
+  <div class="tag-div">
     <ul>
       {{#each greenspace.tags}}
       <li>
@@ -17,80 +16,83 @@
   </div>
 
   <div>
-    <h3>Gallery</h3>
-    <div class="gallery-images">
-      {{#each images}}
-      <img class="greenspace-image" src="{{ this.image }}" alt="GreenSpace Image">
-      {{/each}}
-
-
-
-    </div>
-
     {{#if user._id}}
-    <div class="gallery-button">
-      <button id="upload_greenspace_widget" class="cloudinary-button">Add an Image</button>
-    </div>
+    <form class="fav-form">
+      <input type="hidden" name="favourit" id="favourit" value="{{greenspace._id}}">
+      <label class="favourite-added" for="star-favourite">Save to Favourites</label>
+      <button id="star-favourite" onclick="sendId(event)"> <img id="fav-star" src="/images/star_golden.png"
+          alt="Star Favourite"></button>
+    </form>
     {{/if}}
-
   </div>
 
 
   <div>
-    <h3>Comments</h3>
-
-    <div class="comment-list">
-      <ul class="comment-item">
-        {{#each comments}}
-        <li class="comment-item"> {{ this.comment }}</li>
-        {{!-- <img class="user-image-comment" src="{{../user.image}}" alt="User profile"> --}}
-        <img class="user-image-comment" src="{{this.creator.image}}" alt="User profile">
+    <div class="gallery-images">
+      <span>
+        {{#each images}}
+        <img class="greenspace-image" src="{{ this.image }}" alt="GreenSpace Image">
         {{/each}}
-      </ul>
+
+        {{#if user._id}}
+        <div class="gallery-button">
+          <button id="upload_greenspace_widget" class="cloudinary-button">Add an Image</button>
+        </div>
+        {{/if}}
+
+      </span>
     </div>
-
-
-
-    {{#if user._id}}
-    <form action="/greenspace/{{greenspace._id}}" method="POST">
-      <input type="text" name="comment" id="comment" placeholder="Add your comment">
-      <div class="comment-error"></div>
-      <button id="add-comment" onclick="commentFormCheck(event)">Add a Comment</button>
-    </form>
-    {{/if}}
-
 
 
   </div>
 
 
 
+  <div class="comment-list">
+    <ul class="comment-item">
+      {{#each comments}}
+      <span>
+        <img class="user-image-comment" src="{{this.creator.image}}" alt="User profile">
+        <li class="comment-item"> {{ this.comment }}</li>
+      </span>
+      {{/each}}
+    </ul>
+  </div>
+
+
+  {{#if user._id}}
+  <div class="comment-error"></div>
+  <form id="comment-form" action="/greenspace/{{greenspace._id}}" method="POST">
+    <input type="text" name="comment" id="comment" placeholder="Add your comment">
+    <button id="add-comment" onclick="commentFormCheck(event)">Add a Comment</button>
+  </form>
+  {{/if}}
 
 
 
-  <button class="profile-button"><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=&destination={{greenspace.location.lat}},{{greenspace.location.lng}}&travelmode=walking">NAVIGATE TO {{greenspace.name}}</a> </button>
 
 
+<div class="gs-profile-btns">
+
+  <button class="profile-button"><a target="_blank"
+      href="https://www.google.com/maps/dir/?api=1&origin=&destination={{greenspace.location.lat}},{{greenspace.location.lng}}&travelmode=walking">Navigate
+      to {{greenspace.name}}</a> </button>
 
   <button class="profile-button"><a href="/">Search for another GreenSpace</a></button>
 
   {{#with user}}
-
-  {{!-- <form action='/search' method="post">
-    <button class="favourite-button"><a href="/search/favourites/:id">Favorites</a></button>
-  </form> --}}
-
-  <button class="profile-button"><a href="/greenspace/new">Add another GreenSpace</a></button>
-
+  <button class="profile-button"><a href="/greenspace/new">Add a GreenSpace</a></button>
   {{/with}}
 
 
+</div>
 
 
 
 
 
 
+<<<<<<< HEAD
 
   <div>
 
@@ -124,3 +126,6 @@
 <script>
  
 </script>
+=======
+</div>
+>>>>>>> 1030ce3b12d811434e7950819ca70a2de019012c

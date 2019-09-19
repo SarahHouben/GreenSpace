@@ -12,23 +12,23 @@
 
   <div class="index-buttons">
 
-    
-    <button><a href="/search/location">Find GreenSpaces Near You</a></button> 
-    
+
+    <button class="index-button"><a href="/search/location">Find GreenSpaces Near You</a></button>
+
 
 
     <form class="id-search" action='/search/address' method="post">
       <input placeholder="Enter an Address" type="address" name="address" id="address">
-      <button type="submit">Search Location</button>
+      <button class="index-button" type="submit">Search Location</button>
     </form>
 
 
 
 
     {{#with user}}
-  
-      <button><a href="/search/favourites/{{ _id }}">Favourites</a></button>
-    
+
+    <button class="index-button"><a href="/search/favourites/{{ _id }}">See your Favourites</a></button>
+
     {{/with}}
 
   </div>

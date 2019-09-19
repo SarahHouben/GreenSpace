@@ -194,7 +194,7 @@ footer {
       border-radius: 40px;
       border-color: #E9BC62 !important;
       transition: all 0.3s ease 0s; }
-      .login form button:hover a:hover {
+      .login form button:hover a {
         color: #E9BC62; }
     .login form .account-message {
       box-sizing: border-box;
@@ -298,9 +298,10 @@ footer {
 .index-text {
   text-align: center; }
   .index-text h1 {
-    padding: 7vh; }
+    padding: 4rem; }
   .index-text p {
-    padding: 0 20vw; }
+    padding: 0 20vw;
+    padding-bottom: 1.2rem; }
 
 .index-buttons {
   display: flex;
@@ -309,35 +310,40 @@ footer {
   align-items: center;
   padding: 3vh 3vw; }
   .index-buttons form {
-    padding: 3vh 20vw; }
-    .index-buttons form a {
-      text-decoration: none; }
-    .index-buttons form button {
-      min-height: 40px;
-      min-width: 25vw;
-      cursor: pointer;
-      background-color: #C2D66F;
+    padding: 3vh 0; }
+    .index-buttons form input {
+      width: 100%; }
+  .index-buttons .index-button {
+    min-height: 40px;
+    width: 29vw;
+    cursor: pointer;
+    background-color: #C2D66F;
+    color: #436623 !important;
+    border: 4px solid #619430 !important;
+    border-radius: 6px;
+    /* display: inline-block; */
+    transition: all 0.3s ease 0s;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .index-buttons .index-button a {
       color: #436623 !important;
-      border: 4px solid #619430 !important;
-      border-radius: 6px;
-      display: inline-block;
-      transition: all 0.3s ease 0s; }
-      .index-buttons form button a {
-        color: #436623 !important; }
-    .index-buttons form button:hover {
-      color: #494949 !important;
-      border-radius: 50px;
-      border-color: #494949 !important;
-      transition: all 0.3s ease 0s; }
-      .index-buttons form button:hover a {
-        color: #494949 !important; }
+      text-decoration: none;
+      text-align: center; }
+  .index-buttons .index-button:hover {
+    color: #494949 !important;
+    border-radius: 50px;
+    border-color: #494949 !important;
+    transition: all 0.3s ease 0s; }
+    .index-buttons .index-button:hover a {
+      color: #494949 !important; }
   .index-buttons .id-search {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    align-items: center; }
     .index-buttons .id-search input {
       text-align: center;
       height: 40px;
-      width: 25vw;
       border-radius: 6px; }
     .index-buttons .id-search button {
       margin-top: 15px; }
@@ -430,69 +436,29 @@ footer {
     padding-top: 10px;
     font-weight: 500; }
 
-.gallery-images {
+.greenspace-profile {
   display: flex;
-  flex-wrap: wrap; }
+  align-items: center; }
+  .greenspace-profile h2 {
+    padding: 5vh 0 2vh 0; }
 
-.greenspace-image {
-  height: 50px;
-  width: 50px; }
+.tag-div ul {
+  padding-bottom: 2vh;
+  padding-left: 40px;
+  color: #1C1B33; }
 
-.comment-item {
-  list-style-type: disc; }
+.tag-div li {
+  padding: 3px 0;
+  width: 33%;
+  float: left; }
 
-.comment-error {
-  text-align: center;
-  color: #bd2c19;
-  padding-top: 10px;
-  font-weight: 500; }
-
-.user-image-comment {
-  height: 50px;
-  width: 50px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #436623; }
-
-#add-comment {
-  background-color: #C2D66F;
-  height: 40px;
-  width: 230px;
-  color: #436623;
-  border: 4px solid #619430;
-  border-radius: 6px;
-  display: inline-block;
-  transition: all 0.3s ease 0s;
-  line-height: 0; }
-  #add-comment a {
-    text-decoration: none; }
-
-#add-comment:hover {
-  color: #494949;
-  border-radius: 50px;
-  border-color: #494949;
-  transition: all 0.3s ease 0s;
-  box-shadow: none; }
-
-.profile-button {
-  background-color: #C2D66F;
-  height: 40px;
-  width: 230px;
-  color: #436623;
-  border: 4px solid #619430;
-  border-radius: 6px;
-  display: inline-block;
-  transition: all 0.3s ease 0s;
-  line-height: 0; }
-  .profile-button a {
-    text-decoration: none; }
-
-.profile-button:hover {
-  color: #494949;
-  border-radius: 50px;
-  border-color: #494949;
-  transition: all 0.3s ease 0s;
-  box-shadow: none; }
+.fav-form {
+  display: flex;
+  align-items: center;
+  padding-top: 10px; }
+  .fav-form label {
+    color: #F18701;
+    font-size: 0.8rem; }
 
 #star-favourite {
   border: none;
@@ -502,11 +468,128 @@ footer {
   #star-favourite img {
     height: 40px;
     width: 40px;
-    cursor: pointer; }
+    cursor: pointer;
+    padding-left: 10px; }
 
 #star-favourite:hover img {
   transform: scale(1.2);
   transition-duration: .3s; }
+
+.gallery-images {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
+  align-items: center;
+  padding: 2vh 0; }
+  .gallery-images span {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+
+.greenspace-image {
+  box-sizing: border-box;
+  object-fit: cover;
+  margin: 5px 5px;
+  border: none;
+  border-radius: 6px;
+  max-width: 220px;
+  max-height: 170px;
+  width: 100%;
+  height: auto; }
+
+.greenspace-image:hover {
+  transform: scale(1.4);
+  transition-duration: .3s;
+  box-shadow: 0 3px 4px 1px rgba(15, 51, 12, 0.3); }
+
+.gallery-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px; }
+
+.comment-list {
+  width: 87vw;
+  padding-top: 30px; }
+  .comment-list ul {
+    list-style: none; }
+    .comment-list ul span {
+      display: flex;
+      align-items: center;
+      float: left;
+      padding: 0 20px; }
+  .comment-list li {
+    font-style: italic;
+    max-width: 25vw; }
+
+.comment-error {
+  text-align: center;
+  color: #bd2c19;
+  padding: 10px;
+  font-weight: 500; }
+
+.user-image-comment {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #436623;
+  margin-right: 10px;
+  margin-top: 10px; }
+
+#comment-form {
+  display: flex;
+  align-items: center;
+  min-width: 50vw; }
+  #comment-form input {
+    width: 90%;
+    height: 45px;
+    text-align: center;
+    border-radius: 5px; }
+
+#add-comment {
+  background-color: #7B9EB0 !important;
+  width: auto !important;
+  color: #1e1b4d !important;
+  border: 4px solid #1e1b4d !important;
+  border-radius: 6px !important;
+  transition: all 0.3s ease 0s !important;
+  padding: 5px 5px !important;
+  margin-left: 20px;
+  font-size: 0.9rem !important; }
+
+#add-comment:hover {
+  color: #3878C6 !important;
+  border-radius: 50px !important;
+  border-color: #3878C6 !important;
+  transition: all 0.3s ease 0s !important;
+  box-shadow: none !important; }
+
+.gs-profile-btns {
+  display: flex; }
+
+.profile-button {
+  background-color: #C2D66F;
+  min-height: 40px;
+  width: 10vw;
+  color: #436623;
+  border: 4px solid #619430;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  line-height: 0;
+  padding: 3px 0; }
+  .profile-button a {
+    text-decoration: none;
+    color: #436623;
+    transition: all 0.3s ease 0s; }
+
+.profile-button:hover {
+  color: #494949;
+  border-radius: 50px;
+  border-color: #494949;
+  transition: all 0.3s ease 0s;
+  box-shadow: none; }
 
 .user-profile {
   align-items: center; }
@@ -562,17 +645,41 @@ footer {
   color: #A8C45E;
   transition: all 0.3s ease 0s; }
 
+.add-gs-button {
+  background-color: #C2D66F;
+  min-height: 40px;
+  width: 10vw;
+  color: #436623;
+  border: 4px solid #619430;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  line-height: 0;
+  padding: 3px 0; }
+  .add-gs-button a {
+    text-decoration: none;
+    color: #436623;
+    transition: all 0.3s ease 0s; }
+
+.add-gs-button:hover {
+  color: #494949;
+  border-radius: 50px;
+  border-color: #494949;
+  transition: all 0.3s ease 0s;
+  box-shadow: none; }
+  .add-gs-button:hover a {
+    text-decoration: none;
+    color: #494949;
+    transition: all 0.3s ease 0s; }
+
 .cloudinary-button {
   background-color: #7B9EB0 !important;
-  /* max-height: 60px !important; */
   width: auto !important;
   color: #1e1b4d !important;
   border: 4px solid #1e1b4d !important;
   border-radius: 6px !important;
   transition: all 0.3s ease 0s !important;
-  /* line-height: 0 !important; */
   padding: 5px 5px !important;
-  /* margin: 0 !important; */
   font-size: 0.9rem !important; }
 
 .cloudinary-button:hover {
