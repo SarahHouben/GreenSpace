@@ -99,15 +99,18 @@ var greenSpaceWidget = cloudinary.createUploadWidget({
     }
   },
   (error, result) => {
+    console.log(result.event)
     if (!error && result && result.event === "success") {
       console.log("Done! Here is the image info: ", result.info);
       // send secure url to the backend to the route /greenspace:id
       //import axios
       let greenSpaceImage = result.info.secure_url;
-      // console.log(greenSpaceImage);
       axios.post("/image/greenspace-image", {
         greenSpaceImage
       })
+    }
+    if (result && result.event === "close") {
+      window.location.reload()
     }
   }
 );
