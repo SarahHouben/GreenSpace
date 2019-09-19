@@ -16,49 +16,60 @@
   </div>
 
   <div>
+    {{#if user._id}}
+    <form class="fav-form">
+      <input type="hidden" name="favourit" id="favourit" value="{{greenspace._id}}">
+      <label class="favourite-added" for="star-favourite">Save to Favourites</label>
+      <button id="star-favourite" onclick="sendId(event)"> <img id="fav-star" src="/images/star_golden.png"
+          alt="Star Favourite"></button>
+    </form>
+    {{/if}}
+  </div>
+
+
+  <div>
     <div class="gallery-images">
       <span>
         {{#each images}}
         <img class="greenspace-image" src="{{ this.image }}" alt="GreenSpace Image">
         {{/each}}
+
+        {{#if user._id}}
+        <div class="gallery-button">
+          <button id="upload_greenspace_widget" class="cloudinary-button">Add an Image</button>
+        </div>
+        {{/if}}
+
       </span>
     </div>
 
-    {{#if user._id}}
-    <div class="gallery-button">
-      <button id="upload_greenspace_widget" class="cloudinary-button">Add an Image</button>
-    </div>
-    {{/if}}
 
   </div>
 
 
-  <div>
-    <h3>Comments</h3>
 
-    <div class="comment-list">
-      <ul class="comment-item">
-        {{#each comments}}
-        <li class="comment-item"> {{ this.comment }}</li>
-        {{!-- <img class="user-image-comment" src="{{../user.image}}" alt="User profile"> --}}
+  <div class="comment-list">
+    <ul class="comment-item">
+      {{#each comments}}
+      <span>
         <img class="user-image-comment" src="{{this.creator.image}}" alt="User profile">
-        {{/each}}
-      </ul>
-    </div>
-
-
-
-    {{#if user._id}}
-    <form action="/greenspace/{{greenspace._id}}" method="POST">
-      <input type="text" name="comment" id="comment" placeholder="Add your comment">
-      <div class="comment-error"></div>
-      <button id="add-comment" onclick="commentFormCheck(event)">Add a Comment</button>
-    </form>
-    {{/if}}
-
-
-
+        <li class="comment-item"> {{ this.comment }}</li>
+      </span>
+      {{/each}}
+    </ul>
   </div>
+
+
+  {{#if user._id}}
+  <div class="comment-error"></div>
+  <form id="comment-form" action="/greenspace/{{greenspace._id}}" method="POST">
+    <input type="text" name="comment" id="comment" placeholder="Add your comment">
+    <button id="add-comment" onclick="commentFormCheck(event)">Add a Comment</button>
+  </form>
+  {{/if}}
+
+
+
 
 
 
@@ -79,41 +90,4 @@
 
 
 
-
-
-
-
-
-
-  <div>
-
-    {{#if user._id}}
-    <form>
-      <input type="hidden" name="favourit" id="favourit" value="{{greenspace._id}}">
-      <label class="favourite-added" for="star-favourite">Save to Favourites</label>
-      <button id="star-favourite" onclick="sendId(event)"> <img src="/images/star_golden.png"
-          alt="Star Favourite"></button>
-    </form>
-
-    {{!-- <div class="favourite-added"></div> --}}
-
-    {{/if}}
-
-  </div>
-
 </div>
-
-
-
-{{!-- <script>
-  function sendId(e) {
-    e.preventDefault();
-    let value = document.getElementById('favourit').value
-    console.log(value)
-    axios.post(`/greenspace/favorite/${value}`, { value })
-  }
-</script> --}}
-
-<script>
-  console.log('reloaded')
-</script>

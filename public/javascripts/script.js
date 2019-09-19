@@ -158,7 +158,7 @@ const commentFormCheck = event => {
   if (document.getElementById(commentId).value === "") {
     event.preventDefault();
     document.querySelector(".comment-error").innerText =
-      "Please add a comment.";
+      "Please type your comment.";
   } else {
     document.getElementById("form-button").setAttribute = ("type", "submit");
   }
