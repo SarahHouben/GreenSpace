@@ -20,7 +20,7 @@ router.post('/greenspace-image', (req, res, next) => {
     })
     .then((newImage) => {
       console.log(" New image was uploaded.");
-      res.redirect(`/greenspace/${greenspaceId.toString()}`);
+      res.redirect(`back`);
     })
     .catch(err => {
       console.log(err);

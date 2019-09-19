@@ -78,8 +78,14 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 45vw;
+    align-items: center;
+    min-width: 45vw;
     list-style: none;
+  }
+
+  li {
+    padding: 0 5px;
+    text-align: center;
   }
 }
 
@@ -404,7 +410,7 @@ footer {
   box-sizing: border-box;
 }
 
-/// ##############     index.hbs       ##############  
+/// ##############     INDEX       ##############  
 .index {
   background-image: url("  https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568820044/GreenSpace/index_background.jpg");
   background-position: center;
@@ -443,8 +449,8 @@ footer {
     }
 
     button {
-      height: 40px;
-      width: 25vw;
+      min-height: 40px;
+      min-width: 25vw;
       cursor: pointer;
 
       background-color: #C2D66F;

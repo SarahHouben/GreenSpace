@@ -93,14 +93,14 @@ router.post(`/:id`, (req, res, next) => {
 
 //######          Get  GreenSpace Profile page      ###### //
 router.get('/:greenspaceId', (req, res, next) => {
-
+  console.log('heere');
   const user = req.user
   const greenspaceId = req.params.greenspaceId;
   app.locals.spaceId = greenspaceId
 
   Comment.find({
       greenspace: greenspaceId
-    }).then(comments => {
+    }).populate("creator").then(comments => {
 
       Image.find({
           greenspace: greenspaceId
@@ -111,6 +111,7 @@ router.get('/:greenspaceId', (req, res, next) => {
             })
             .then(greenspace => {
               if (req.user) {
+                console.log(images.length)
                 res.render('greenspace', {
                   user: user,
                   greenspace: greenspace,
