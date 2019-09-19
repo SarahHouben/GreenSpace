@@ -9,9 +9,17 @@ router.get('/:userId', (req, res, next) => {
   console.log(' profile page loaded')
   const userId = req.user._id;
   User.findById(userId).then(user => {
-    res.render('user', {
-      user: user
-    });
+GreenSpace.find({_id:{$in:user.favourites}},{
+  location: 1,
+  name: 1
+}).then(greenSpace =>{
+  
+  res.render('user', {
+    user: user,
+    greenSpace:greenSpace
+  });
+})
+
   })
 });
 
