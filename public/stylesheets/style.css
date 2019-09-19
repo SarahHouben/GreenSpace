@@ -577,14 +577,13 @@ footer {
   width: 100vw;
   justify-content: center; }
 
-.nav-btn div {
-  display: flex;
-  align-items: center; }
-
 .nav-btn img {
-  height: 30px;
-  width: 30px;
-  padding-left: 5px; }
+  height: 40px;
+  width: 40px; }
+
+.nav-btn:hover img {
+  transform: scale(1.2);
+  transition-duration: .3s; }
 
 .profile-button {
   background-color: #C2D66F;
