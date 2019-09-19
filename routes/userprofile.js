@@ -27,12 +27,29 @@ router.post('/:userId/profile-image', (req, res, next) => {
       image: profileImage
     })
     .then(result => {
-      res.redirect(`/user/${userId.toString()}`);
+      res.send();
     })
     .catch(err => {
       console.log(err);
     })
 });
+// //Profile Photo
+// router.post('/:userId/profile-image', (req, res, next) => {
+//   const profileImage = req.body.profileImage;
+//   const userId = req.user._id;
+
+//   User.updateOne({
+//       _id: userId
+//     }, {
+//       image: profileImage
+//     })
+//     .then(result => {
+//       res.redirect(`/user/${userId.toString()}`);
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     })
+// });
 
 
 

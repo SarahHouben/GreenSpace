@@ -58,19 +58,9 @@
     </form>
     {{/if}}
 
-   
+
 
   </div>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -85,30 +75,47 @@
 
   {{#with user}}
 
-  <form action='/search' method="post">
+  {{!-- <form action='/search' method="post">
     <button class="favourite-button"><a href="/search/favourites/:id">Favorites</a></button>
-  </form>
+  </form> --}}
 
   <button class="profile-button"><a href="/greenspace/new">Add another GreenSpace</a></button>
 
   {{/with}}
 
+
+
+
+
+
+
+
+
+  <div>
+
+    {{#if user._id}}
+    <form>
+      <input type="hidden" name="favourit" id="favourit" value="{{greenspace._id}}">
+      <label class="favourite-added" for="star-favourite">Save to Favourites</label>
+      <button id="star-favourite" onclick="sendId(event)"> <img src="/images/star_golden.png"
+          alt="Star Favourite"></button>
+    </form>
+
+    {{!-- <div class="favourite-added"></div> --}}
+
+    {{/if}}
+
+  </div>
+
 </div>
 
-<div>
-  {{#if user._id}}
-    <form >
-      <input type="hidden" name="favourit" id="favourit" value="{{greenspace._id}}">
-      <button class="profile-button" onclick="sendId(event)">Add to favourites </button>
-    </form>
-    {{/if}}
-    </div>
 
-<script>
-  function sendId(e){
+
+{{!-- <script>
+  function sendId(e) {
     e.preventDefault();
     let value = document.getElementById('favourit').value
-console.log(value)
-    axios.post(`/greenspace/favorite/${value}`,{value})
+    console.log(value)
+    axios.post(`/greenspace/favorite/${value}`, { value })
   }
-</script>
+</script> --}}
