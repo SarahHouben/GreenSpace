@@ -551,4 +551,12 @@ footer {
   color: #bd2c19;
   font-weight: 500; }
 
+.error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+  .error-page h2 {
+    padding: 3vh; }
+
 /*# sourceMappingURL=style.css.map */

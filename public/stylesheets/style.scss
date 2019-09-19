@@ -848,3 +848,17 @@ footer {
   color: #bd2c19;
   font-weight: 500;
 }
+
+//#####################  ERROR PAGE  ############################
+.error-page {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  h2 {
+    padding: 3vh;
+  }
+}
