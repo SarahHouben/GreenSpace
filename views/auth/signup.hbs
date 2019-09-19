@@ -1,39 +1,42 @@
-<div class="search-container">
+<div class="search-container signup">
 
-<h2>Signup</h2>
+  <h2>Signup</h2>
 
-<form action="/auth/signup" method="POST" id="form-container">
-  {{!-- <label for="username">Username</label> --}}
-  <input id="username" type="text" name="username" placeholder="Username">
+  <form action="/auth/signup" method="POST" id="form-container">
 
-  <br><br>
+    <div>
+      <input id="username" type="text" name="username" placeholder="Username">
 
-  {{!-- <label for="password">Password</label> --}}
-  <input id="password" type="password" name="password" placeholder="Password">
+      <br><br>
 
-  <br><br>
+      <input id="password" type="password" name="password" placeholder="Password">
 
-  {{!-- <label for="email">Email</label> --}}
-  <input id="email" type="email" name="email" placeholder="Email">
+      <br><br>
+
+      <input id="email" type="email" name="email" placeholder="Email">
 
 
-  <br>
-  {{#if message }}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
+      <br>
+      {{#if message }}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
 
-  <br><br>
+    </div>
 
-  <button>Create account</button>
-  {{!-- <a href="/auth/instagram">Login via Instagram</a>
-  <a href="/auth/twitter">Login via Twitter</a> --}}
-  <button><a href="/auth/instagram">Login via Instagram</a></button>
-  <button><a href="/auth/twitter">Login via Twitter</a></button>
+    <br><br>
 
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
-</form>
+
+    <div class="signup-buttons">
+      <button>Create account</button>
+      <button><a href="/auth/instagram">Login via Instagram</a></button>
+      <button><a href="/auth/twitter">Login via Twitter</a></button>
+    </div>
+
+
+    <p class="account-message">
+      Do you already have an account?
+      <a href="/auth/login">Login</a>
+    </p>
+  </form>
 
 </div>
