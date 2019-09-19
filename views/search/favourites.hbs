@@ -1,4 +1,7 @@
 <div id="map" class="search-map"></div>
+ <div class="panel">
+      <h2>Your favourite GreenSpaces</h2>
+    </div>
   
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYLwxbUeRyQSlAjR9qLXh3pnr4TFCAIW0&callback=initMap">
@@ -90,7 +93,7 @@ console.log(data)
         };
         let img = `{{{ user.image }}}`
       //========================= style profile image with class ===================================
-        let styling = `<img class="popup-image" src="${img}" >`
+        let styling = `<img class="popup-profile-image" src="${img}" >`
         infoWindow.setPosition(pos);
         infoWindow.setContent(styling);
         infoWindow.open(map);
