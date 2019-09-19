@@ -17,10 +17,12 @@
 
   <div>
     {{#if user._id}}
+
+    
     <form class="fav-form">
       <input type="hidden" name="favourit" id="favourit" value="{{greenspace._id}}">
       <label class="favourite-added" for="star-favourite">Save to Favourites</label>
-      <button id="star-favourite" onclick="sendId(event)"> <img id="fav-star" src="/images/star_golden.png"
+      <button id="star-favourite" onclick="sendId(event)"> <img id="fav-star" src="/images/star_gray.png"
           alt="Star Favourite"></button>
     </form>
     {{/if}}

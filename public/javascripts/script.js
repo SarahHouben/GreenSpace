@@ -1,3 +1,5 @@
+
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
@@ -172,7 +174,7 @@ const commentFormCheck = event => {
 function sendId(e) {
   e.preventDefault();
   let value = document.getElementById('favourit').value
-  console.log(value)
+  document.getElementById('fav-star').setAttribute("src", "/images/star_golden.png");
   document.querySelector(".favourite-added").innerText =
     "Added to Favourites.";
   axios.post(`/greenspace/favorite/${value}`, {
