@@ -174,8 +174,6 @@ function sendId(e) {
   e.preventDefault();
   let value = document.getElementById('favourit').value
   console.log(value)
-  // document.querySelector(".favourite-added").innerText =
-  //   "Added to Favourites.";
   document.querySelector(".favourite-added").innerText =
     "Added to Favourites.";
   axios.post(`/greenspace/favorite/${value}`, {

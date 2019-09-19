@@ -69,7 +69,7 @@ router.post("/signup", (req, res, next) => {
     return;
   }
 
-  //Check that username is given
+  //Check that email is given
   if (email === "") {
     res.render("auth/signup", {
       message: "Please enter an email address."
@@ -98,8 +98,8 @@ router.post("/signup", (req, res, next) => {
 
     newUser.save()
       .then((user) => {
-        // req.user = user;
-        console.log(user)
+        req.user = user;
+        console.log(req)
         res.redirect("/", );
         // res.render('index', {
         //   user: req.user
