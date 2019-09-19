@@ -1,4 +1,7 @@
 <div id="map" class="search-map"></div>
+<div class="panel">
+      <h2>GreenSpaces near you</h2>
+    </div>
 
 
 <script async defer
@@ -90,7 +93,7 @@
            
          let img = `{{{ user.image }}}`
       //========================= style profile image with class ===================================
-        let styling = `<img src="${img}" >`
+        let styling = `<img class="popup-profile-image" src="${img}" >`
         infoWindow.setPosition(pos);
         infoWindow.setContent(styling);
         infoWindow.open(map);
