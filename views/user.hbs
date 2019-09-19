@@ -1,27 +1,29 @@
 <div class="search-container user-profile">
 
-  <h2>Welcome back {{user.username}} </h2>
+  <h2>Welcome back {{user.username}}!</h2>
 
-  <div class="user-image-div">
-    <img class="profile-image" src="{{user.image}}" alt="Profile Image">
-    <button id="upload_widget" class="cloudinary-button">Change profile photo</button>
+  <div class="user-info">
+
+    <div class="user-image-div">
+      <img class="profile-image" src="{{user.image}}" alt="Profile Image">
+      <button id="upload_widget" class="cloudinary-button">Change profile photo</button>
+    </div>
+
+
+    <div class="favourite-div">
+      <h3>Your favourite GreenSpaces</h3>
+      <ul>
+        {{#each greenSpace}}
+        <li>
+          <a href="http://localhost:3000/greenspace/{{ this._id }}">{{ this.name }}</a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+
   </div>
 
-  <button><a href="/greenspace/new">Add another GreenSpace</a></button>
 
-  <div class="favourite-div">
-
-    <h3>Your favourite GreenSpaces:</h3>
-
-    <ul>
-      {{#each greenSpace}}
-      <li>
-        <a href="http://localhost:3000/greenspace/{{ this._id }}">{{ this.name }}</a>
-      </li>
-      {{/each}}
-    </ul>
-
-  </div>
-
+  <button class="add-gs-button"><a href="/greenspace/new">Add a GreenSpace</a></button>
 
 </div>

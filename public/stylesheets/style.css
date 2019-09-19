@@ -263,7 +263,8 @@ footer {
       border-color: #E9BC62 !important;
       transition: all 0.3s ease 0s; }
       .signup form button:hover a:hover {
-        color: #E9BC62; }
+        color: #E9BC62;
+        transition: all 0.3s ease 0s; }
     .signup form .account-message {
       box-sizing: border-box;
       padding: 4vh 0 3vh 0;
@@ -509,10 +510,23 @@ footer {
 
 .user-profile {
   align-items: center; }
+  .user-profile h2 {
+    padding: 5vh 0 2vh 0; }
+  .user-profile button {
+    margin: 3vh 0;
+    box-sizing: border-box; }
+
+.user-info {
+  display: flex;
+  min-width: 60%;
+  flex-direction: row;
+  padding: 3vh 0;
+  justify-content: space-around; }
 
 .user-image-div {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  flex-direction: column; }
 
 .profile-image {
   min-height: 50px;
@@ -521,7 +535,32 @@ footer {
   width: 20vh;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #1e1b4d; }
+  border: 4px solid #1e1b4d;
+  box-sizing: border-box;
+  margin-bottom: 2vh; }
+
+.favourite-div h3 {
+  color: #1C1B33;
+  padding-bottom: 2vh;
+  text-decoration: underline; }
+
+.favourite-div ul {
+  padding-bottom: 2vh;
+  padding-left: 40px;
+  color: #436623; }
+
+.favourite-div li {
+  padding: 10px 0; }
+
+.favourite-div a {
+  text-decoration: none;
+  color: #436623;
+  transition: all 0.3s ease 0s; }
+
+.favourite-div a:hover {
+  text-decoration: underline;
+  color: #A8C45E;
+  transition: all 0.3s ease 0s; }
 
 .cloudinary-button {
   background-color: #7B9EB0 !important;

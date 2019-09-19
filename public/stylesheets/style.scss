@@ -396,6 +396,7 @@ footer {
 
       a:hover {
         color: #E9BC62;
+        transition: all 0.3s ease 0s;
       }
 
     }
@@ -777,11 +778,31 @@ footer {
 
 .user-profile {
   align-items: center;
+
+  h2 {
+    padding: 5vh 0 2vh 0;
+  }
+
+  button {
+    margin: 3vh 0;
+    box-sizing: border-box;
+  }
 }
+
+.user-info {
+  display: flex;
+  min-width: 60%;
+  // align-items: center;
+  flex-direction: row;
+  padding: 3vh 0;
+  justify-content: space-around;
+}
+
 
 .user-image-div {
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 
 
@@ -793,9 +814,45 @@ footer {
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid rgb(30, 27, 77);
+  box-sizing: border-box;
+  margin-bottom: 2vh;
 }
 
+.favourite-div {
 
+  h3 {
+    color: #1C1B33;
+    padding-bottom: 2vh;
+    text-decoration: underline;
+  }
+
+  ul {
+    padding-bottom: 2vh;
+    padding-left: 40px;
+    color: #436623
+  }
+
+  li {
+    padding: 10px 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: #436623;
+    transition: all 0.3s ease 0s;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: #A8C45E;
+    transition: all 0.3s ease 0s;
+  }
+
+}
+
+// .add-gs-button{
+
+// }
 
 
 
