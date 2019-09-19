@@ -1,11 +1,4 @@
-<div id="map" class="search-map"></div>
-
-
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYLwxbUeRyQSlAjR9qLXh3pnr4TFCAIW0&callback=initMap">
-  </script>
-<script>
-  // Note: This example requires that you consent to location sharing when
+ // Note: This example requires that you consent to location sharing when
   // prompted by your browser. If you see the error "The Geolocation service
   // failed.", it means you probably did not give permission for the browser to
   // locate you.
@@ -19,7 +12,7 @@
     var image = 'https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png'
 
     //prettier-ignore
-    let data = {{{ array }}};
+    // let data = {{{ array }}};
 
    
    
@@ -81,12 +74,15 @@ var dist  ;
       }
     }
   }
- dist = response;
+  dist = response;
+  handleEverything()
 }
 
+console.log(dist)
 
-  
+function handleEverything() {
 
+      // dist will be availabe here
       // console.log(markerUnit.title)
       var img;
       let name = greenspaceData[0].name;
@@ -160,5 +156,4 @@ var dist  ;
 
   }
 
-
-</script>
+  }
