@@ -1,12 +1,11 @@
-<div class="search-container">
+<div class="search-container greenspace-profile">
 
 
 
   <h2>Visit {{greenspace.name}} </h2>
 
 
-  <div>
-    <h3>Tags for {{greenspace.name}}</h3>
+  <div class="tag-div">
     <ul>
       {{#each greenspace.tags}}
       <li>
@@ -17,14 +16,12 @@
   </div>
 
   <div>
-    <h3>Gallery</h3>
     <div class="gallery-images">
-      {{#each images}}
-      <img class="greenspace-image" src="{{ this.image }}" alt="GreenSpace Image">
-      {{/each}}
-
-
-
+      <span>
+        {{#each images}}
+        <img class="greenspace-image" src="{{ this.image }}" alt="GreenSpace Image">
+        {{/each}}
+      </span>
     </div>
 
     {{#if user._id}}
@@ -68,20 +65,16 @@
 
 
 
-  <button class="profile-button"><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=&destination={{greenspace.location.lat}},{{greenspace.location.lng}}&travelmode=walking">NAVIGATE TO {{greenspace.name}}</a> </button>
+  <button class="profile-button"><a target="_blank"
+      href="https://www.google.com/maps/dir/?api=1&origin=&destination={{greenspace.location.lat}},{{greenspace.location.lng}}&travelmode=walking">Navigate
+      to {{greenspace.name}}</a> </button>
 
 
 
   <button class="profile-button"><a href="/">Search for another GreenSpace</a></button>
 
   {{#with user}}
-
-  {{!-- <form action='/search' method="post">
-    <button class="favourite-button"><a href="/search/favourites/:id">Favorites</a></button>
-  </form> --}}
-
-  <button class="profile-button"><a href="/greenspace/new">Add another GreenSpace</a></button>
-
+  <button class="profile-button"><a href="/greenspace/new">Add a GreenSpace</a></button>
   {{/with}}
 
 

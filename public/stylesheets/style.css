@@ -436,16 +436,53 @@ footer {
     padding-top: 10px;
     font-weight: 500; }
 
+.greenspace-profile {
+  display: flex;
+  align-items: center; }
+  .greenspace-profile h2 {
+    padding: 5vh 0 2vh 0; }
+
+.tag-div ul {
+  padding-bottom: 2vh;
+  padding-left: 40px;
+  color: #1C1B33; }
+
+.tag-div li {
+  padding: 3px 0;
+  width: 33%;
+  float: left; }
+
 .gallery-images {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  width: 80vw;
+  align-items: center;
+  padding: 2vh 0; }
+  .gallery-images span {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
 
 .greenspace-image {
-  height: 50px;
-  width: 50px; }
+  box-sizing: border-box;
+  object-fit: cover;
+  margin: 5px 5px;
+  border: none;
+  border-radius: 10px;
+  max-width: 220px;
+  max-height: 180px;
+  width: 100%;
+  height: auto; }
 
-.comment-item {
-  list-style-type: disc; }
+.greenspace-image:hover {
+  transform: scale(1.4);
+  transition-duration: .3s;
+  box-shadow: 0 3px 4px 1px rgba(15, 51, 12, 0.3); }
+
+.gallery-button {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .comment-error {
   text-align: center;
@@ -512,9 +549,7 @@ footer {
 
 #star-favourite:hover img {
   transform: scale(1.2);
-  transition-duration: .3s;
-  filter: grayscale(50%);
-  opacity: .7; }
+  transition-duration: .3s; }
 
 .user-profile {
   align-items: center; }
