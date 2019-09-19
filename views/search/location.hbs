@@ -29,6 +29,7 @@
   }
   )
   )
+  navigator.geolocation.getCurrentPosition((loc)=>{
   axios.get('http://localhost:3000/search/location/test').then((response) => {
     var places = response.data.places;
     var images = response.data.images;
@@ -45,8 +46,9 @@
         return data.greenspace === markerUnit.title;
       });
       //console.log(imageData)
+      
 
-      console.log(markerUnit.title)
+    
       var img;
       let name = greenspaceData[0].name;
       let id = greenspaceData[0]._id;
@@ -57,14 +59,12 @@
       };
 
 
+    
 
       var contentString = `<div class="popup-section"><h4>${name}</h4><img class="popup-image" src=${img} alt="GreenSpace"><a class="popup-link" href="/greenspace/${id}"><button class="popup-button">More Info</button></a></div>`;
 
       var infowindow = new google.maps.InfoWindow({
         content: contentString,
-        maxWidth: 150,
-        maxHeight:200,
-        backgroundColor:"1c1c33"
       });
 
       var toggle = true;
@@ -115,6 +115,7 @@
 
 
 
+  })
   })
   }
 </script>

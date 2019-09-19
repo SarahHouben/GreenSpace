@@ -21,7 +21,7 @@
     
     var image = 'https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568720489/GreenSpace/greenspace_logo_small_70pxW_jbnsv9.png'
     let data = {{{ array }}};
-console.log(data)
+
   let marker = data.map(el => new google.maps.Marker({
     position: { lat: el.location.lat, lng: el.location.lng },
     map: map,
@@ -47,8 +47,10 @@ console.log(data)
       });
       //console.log(imageData)
 
-      console.log(markerUnit.title)
+      
       var img;
+      let greenLat = greenspaceData[0].location.lat
+      let greenLng = greenspaceData[0].location.lng
       let name = greenspaceData[0].name;
       let id = greenspaceData[0]._id;
       if (imageData.length === 0) {
@@ -59,7 +61,7 @@ console.log(data)
 
 
 
-      var contentString = `<div class="popup-section"><h4>${name}</h4><img class="popup-image" src=${img} alt="GreenSpace"><a class="popup-link" href="/greenspace/${id}"><button class="popup-button">More Info</button></a></div>`;
+      var contentString = `<div class="popup-section"><h4>${name}</h4><img class="popup-image" src=${img} alt="GreenSpace"><a class="popup-link" href="/greenspace/${id}"><button class="popup-button">More Info</button></a><button class="popup-button"><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=&destination=${greenLat},${greenLng}&travelmode=walking">Navigate</a> </button></div>`;
 
       var infowindow = new google.maps.InfoWindow({
         content: contentString,
