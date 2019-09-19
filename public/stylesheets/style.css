@@ -512,7 +512,9 @@ footer {
 
 #star-favourite:hover img {
   transform: scale(1.2);
-  transition-duration: .3s; }
+  transition-duration: .3s;
+  filter: grayscale(50%);
+  opacity: .7; }
 
 .user-profile {
   align-items: center; }

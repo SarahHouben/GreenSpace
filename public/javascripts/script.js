@@ -11,8 +11,6 @@ document.addEventListener(
 var myWidget = cloudinary.createUploadWidget({
     cloudName: "dmlqhwwfc",
     uploadPreset: "umqopfpp",
-    /*    cloudName: {{cloudName}},
-      uploadPreset: {{uploadPreset}}, */
     sources: ["local", "url", "camera", "facebook", "instagram"],
     styles: {
       palette: {
