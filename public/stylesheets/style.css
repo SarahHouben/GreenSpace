@@ -78,7 +78,8 @@ footer {
 .search-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 150px); }
+  min-height: calc(100vh - 150px);
+  background-color: rgba(193, 214, 111, 0.609); }
 
 .gm-style-iw-c {
   border-radius: 70px !important;
@@ -103,7 +104,7 @@ footer {
     padding: 3px; }
 
 .popup-image {
-  height: 50px;
+  height: 100px;
   width: 100px;
   object-fit: cover;
   border-radius: 6%;
@@ -131,6 +132,142 @@ footer {
   color: #436623;
   transition: all 0.3s ease 0s;
   border: 2px solid #436623; }
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .login h2 {
+    box-sizing: border-box;
+    padding: 5vh 0; }
+  .login form {
+    padding: 2vh 20vw 3vh 20vw; }
+    .login form div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; }
+    .login form input {
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      border-radius: 5px; }
+    .login form a {
+      text-decoration: none;
+      color: #436623;
+      text-align: center; }
+    .login form button {
+      min-height: 55px;
+      border-radius: 5px;
+      padding: 5px 5px;
+      margin: 0 20px;
+      box-sizing: border-box;
+      width: 100%;
+      background-color: #E98D58;
+      border: 2px solid #494949;
+      cursor: pointer;
+      box-shadow: 0 3px 4px 1px rgba(15, 51, 12, 0.3);
+      color: #494949;
+      transition: all 0.3s ease 0s; }
+      .login form button a {
+        color: #494949; }
+    .login form button:hover {
+      color: #E9BC62 !important;
+      border-radius: 40px;
+      border-color: #E9BC62 !important;
+      transition: all 0.3s ease 0s; }
+      .login form button:hover a:hover {
+        color: #E9BC62; }
+    .login form .account-message {
+      box-sizing: border-box;
+      padding: 4vh 0 3vh 0;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .login form .account-message a {
+        padding-left: 8px;
+        font-weight: 400;
+        color: #494949;
+        text-decoration: underline; }
+      .login form .account-message a:hover {
+        text-decoration: none;
+        color: #E9BC62;
+        transition: all 0.3s ease 0s;
+        font-weight: 500; }
+
+.login-buttons {
+  display: flex !important;
+  flex-direction: row !important;
+  /* justify-content: space-between !important; */
+  box-sizing: border-box; }
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .signup h2 {
+    box-sizing: border-box;
+    padding: 5vh 0; }
+  .signup form {
+    padding: 2vh 20vw 3vh 20vw; }
+    .signup form div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; }
+    .signup form input {
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      border-radius: 5px; }
+    .signup form a {
+      text-decoration: none;
+      color: #436623;
+      text-align: center; }
+    .signup form button {
+      min-height: 55px;
+      border-radius: 5px;
+      padding: 5px 5px;
+      margin: 0 20px;
+      box-sizing: border-box;
+      width: 100%;
+      background-color: #E98D58;
+      border: 2px solid #494949;
+      cursor: pointer;
+      box-shadow: 0 3px 4px 1px rgba(15, 51, 12, 0.3);
+      color: #494949;
+      transition: all 0.3s ease 0s; }
+      .signup form button a {
+        color: #494949; }
+    .signup form button:hover {
+      color: #E9BC62 !important;
+      border-radius: 40px;
+      border-color: #E9BC62 !important;
+      transition: all 0.3s ease 0s; }
+      .signup form button:hover a:hover {
+        color: #E9BC62; }
+    .signup form .account-message {
+      box-sizing: border-box;
+      padding: 4vh 0 3vh 0;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .signup form .account-message a {
+        padding-left: 8px;
+        font-weight: 400;
+        color: #494949;
+        text-decoration: underline; }
+      .signup form .account-message a:hover {
+        text-decoration: none;
+        color: #E9BC62;
+        transition: all 0.3s ease 0s;
+        font-weight: 500; }
+
+.signup-buttons {
+  display: flex !important;
+  flex-direction: row !important;
+  /* justify-content: space-between !important; */
+  box-sizing: border-box; }
 
 .index {
   background-image: url("  https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568820044/GreenSpace/index_background.jpg");
@@ -333,6 +470,17 @@ footer {
     width: 40px;
     cursor: pointer; }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 80a5c855b2304181ea8facca9e3ee48b7ef69f98
+=======
+#star-favourite:hover img {
+  transform: scale(1.2);
+  transition-duration: .3s; }
+
+>>>>>>> styling-authforms
+>>>>>>> 6d4c7b2ebc22bda24165321532aeeb2412358897
 .profile-image {
   height: 50px;
   width: 50px;
