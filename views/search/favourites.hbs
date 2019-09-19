@@ -30,6 +30,8 @@
   }
   )
   )
+  let service = new google.maps.DistanceMatrixService();
+  navigator.geolocation.getCurrentPosition((loc)=>{
   axios.get('http://localhost:3000/search/location/test').then((response) => {
     var places = response.data.places;
     var images = response.data.images;
@@ -46,12 +48,46 @@
         return data.greenspace === markerUnit.title;
       });
       //console.log(imageData)
-
+     service.getDistanceMatrix(
+  {
+    origins: [{
+  lat : loc.coords.latitude, 
+   lng : loc.coords.longitude 
+}],
+    destinations: [{
+  lat : greenspaceData[0].location.lat, 
+   lng : greenspaceData[0].location.lng 
+}],
+    travelMode: 'WALKING',
+  }, callback)
       
-      var img;
+function callback(response, status) {
+  if (status == 'OK') {
+    var origins = response.originAddresses;
+    
+    var destinations = response.destinationAddresses;
+
+    for (var i = 0; i < origins.length; i++) {
+      var results = response.rows[i].elements;
+      for (var j = 0; j < results.length; j++) {
+        var element = results[j];
+        var distance = element.distance.text;
+        var duration = element.duration.text;
+        var from = origins[i];
+        var to = destinations[j];
+      }
+    }
+  }
+
+
+
+     var img;
+      let dist = response.rows[0].elements[0].distance.text
+      let time = response.rows[0].elements[0].duration.text
+      console.log(time,dist)
       let greenLat = greenspaceData[0].location.lat
       let greenLng = greenspaceData[0].location.lng
-      let name = greenspaceData[0].name;
+      let name = greenspaceData[0].name.toUpperCase();
       let id = greenspaceData[0]._id;
       if (imageData.length === 0) {
         img = "https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568704142/GreenSpace/default_greenspace_image.jpg"
@@ -60,8 +96,8 @@
       };
 
 
-
-      var contentString = `<div class="popup-section"><h4>${name}</h4><img class="popup-image" src=${img} alt="GreenSpace"><a class="popup-link" href="/greenspace/${id}"><button class="popup-button">More Info</button></a><button class="popup-button"><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=&destination=${greenLat},${greenLng}&travelmode=walking">Navigate</a> </button></div>`;
+      
+      var contentString = `<div class="popup-section"><h4>${name}</h4><img class="popup-image" src=${img} alt="GreenSpace"><a class="popup-link" href="/greenspace/${id}"><button class="popup-button">More Info</button></a><button class="popup-button"><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin={{ data.lat }},{{ data.lng }}&destination=${greenLat},${greenLng}&travelmode=walking">Navigate</a> </button></div><p>Distance:${dist}</p><p>Time:${time}</p>`;
 
       var infowindow = new google.maps.InfoWindow({
         content: contentString,
@@ -81,6 +117,7 @@
       }
        
        });
+       }
     })
 
 
@@ -90,8 +127,8 @@
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
         var pos = {
-          lat: 52.520008,
-          lng: 13.404954
+          lat: loc.coords.latitude,
+          lng: loc.coords.longitude
         };
         let img = `{{{ user.image }}}`
       //========================= style profile image with class ===================================
@@ -117,6 +154,7 @@
 
 
 
+  })
   })
   }
 </script>
