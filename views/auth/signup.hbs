@@ -1,10 +1,10 @@
 <div class="search-container signup">
 
   <h2>Signup</h2>
-  <div>
 
-    <form action="/auth/signup" method="POST" id="form-container">
+  <form action="/auth/signup" method="POST" id="form-container">
 
+    <div>
       <input id="username" type="text" name="username" placeholder="Username">
 
       <br><br>
@@ -21,20 +21,22 @@
       <div class="error-message">{{ message }}</div>
       {{/if}}
 
-  </div>
+    </div>
 
-  <br><br>
+    <br><br>
 
-  <button>Create account</button>
-  {{!-- <a href="/auth/instagram">Login via Instagram</a>
-  <a href="/auth/twitter">Login via Twitter</a> --}}
-  <button><a href="/auth/instagram">Login via Instagram</a></button>
-  <button><a href="/auth/twitter">Login via Twitter</a></button>
 
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
+    <div class="signup-buttons">
+      <button>Create account</button>
+      <button><a href="/auth/instagram">Login via Instagram</a></button>
+      <button><a href="/auth/twitter">Login via Twitter</a></button>
+    </div>
+
+
+    <p class="account-message">
+      Do you already have an account?
+      <a href="/auth/login">Login</a>
+    </p>
   </form>
 
 </div>

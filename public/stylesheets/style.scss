@@ -205,7 +205,7 @@ footer {
   }
 
   form {
-    padding: 3vh 20vw;
+    padding: 2vh 20vw 3vh 20vw;
 
 
     div {
@@ -230,9 +230,13 @@ footer {
     }
 
     button {
-      height: 30px;
+      min-height: 55px;
       border-radius: 5px;
-      padding: 0 5px;
+      padding: 5px 5px;
+      margin: 0 20px;
+      box-sizing: border-box;
+      width: 100%;
+
       background-color: #E98D58;
       border: 2px solid #494949;
       cursor: pointer;
@@ -286,9 +290,119 @@ footer {
   }
 }
 
+.login-buttons {
+  display: flex !important;
+  flex-direction: row !important;
+  /* justify-content: space-between !important; */
+  // padding: 0 10px;
+  box-sizing: border-box;
+}
+
 /// ##############     SIGNUP     ##############  
 
-// .signup{}
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    box-sizing: border-box;
+    padding: 5vh 0;
+  }
+
+  form {
+    padding: 2vh 20vw 3vh 20vw;
+
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    input {
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+
+    a {
+      text-decoration: none;
+      color: #436623;
+      text-align: center
+    }
+
+    button {
+      min-height: 55px;
+      border-radius: 5px;
+      padding: 5px 5px;
+      margin: 0 20px;
+      box-sizing: border-box;
+      width: 100%;
+
+      background-color: #E98D58;
+      border: 2px solid #494949;
+      cursor: pointer;
+      box-shadow: 0 3px 4px 1px rgba(15, 51, 12, 0.3);
+      color: #494949;
+      transition: all 0.3s ease 0s;
+
+      a {
+        color: #494949;
+      }
+    }
+
+
+    button:hover {
+
+      color: #E9BC62 !important;
+      border-radius: 40px;
+      border-color: #E9BC62 !important;
+      transition: all 0.3s ease 0s;
+
+      a:hover {
+        color: #E9BC62;
+      }
+
+    }
+
+
+
+    .account-message {
+      box-sizing: border-box;
+      padding: 4vh 0 3vh 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        padding-left: 8px;
+        font-weight: 400;
+        color: #494949;
+        text-decoration: underline;
+      }
+
+      a:hover {
+        text-decoration: none;
+        color: #E9BC62;
+        transition: all 0.3s ease 0s;
+        font-weight: 500;
+      }
+    }
+
+  }
+}
+
+.signup-buttons {
+  display: flex !important;
+  flex-direction: row !important;
+  /* justify-content: space-between !important; */
+  // padding: 0 10px;
+  box-sizing: border-box;
+}
 
 /// ##############     index.hbs       ##############  
 .index {
