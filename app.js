@@ -97,7 +97,7 @@ passport.use(
   new InstagramStrategy({
       clientID: process.env.INSTAGRAM_CLIENTID,
       clientSecret: process.env.INSTAGRAM_CLIENTSECRET,
-      callbackURL: "http://localhost:3000/auth/instagram/callback"
+      callbackURL: "https://greenspaceberlin.herokuapp.com/auth/instagram/callback"
     },
     (accessToken, refreshToken, profile, done) => {
       //find a user with a profile.id as instagramID or create one
@@ -133,7 +133,7 @@ passport.use(
   new TwitterStrategy({
       consumerKey: process.env.TWITTER_CLIENTID,
       consumerSecret: process.env.TWITTER_CLIENTSECRET,
-      callbackURL: "http://localhost:3000/auth/twitter/callback"
+      callbackURL: "https://greenspaceberlin.herokuapp.com/auth/twitter/callback"
     },
     (accessToken, refreshToken, profile, done) => {
       //find a user with a profile.id as TwitterID or create one
