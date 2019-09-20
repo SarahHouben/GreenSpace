@@ -5,11 +5,6 @@ const User = require("../models/User");
 const Image = require("../models/Image");
 const axios = require("axios");
 
-// router.get("/", (req, res, next) => {
-//   res.render("./search/result-map", {
-//     user: req.user,
-//   });
-// });
 
 router.get("/location", (req, res, next) => {
   GreenSpace.find({}, {
@@ -17,7 +12,7 @@ router.get("/location", (req, res, next) => {
     })
     .then(locations => {
       let latLongArray = locations.map(obj => {
-        return obj; // vrati object da bi dobio i ID
+        return obj;
       });
 
       res.render("./search/location", {
@@ -40,11 +35,9 @@ router.post("/address", (req, res, next) => {
       GreenSpace.find({}, {
         location: 1
       }).then(locations => {
-        // console.log("here is locations",locations)
         let latLongArray = locations.map(obj => {
           return obj;
         });
-        // console.log(latLongArray)
         let data = loc.data.results[0].geometry.location;
         res.render("./search/address", {
           user: req.user,
@@ -58,29 +51,50 @@ router.post("/address", (req, res, next) => {
 
 router.get("/address", (req, res, next) => {
   GreenSpace.find({}).then(places => {
-    User.findById(req.user._id).then(user =>{
-    Image.find({}).then(images => {
-      let newObj = { places, images, user};
-      // console.log(newObj)
-      res.json(newObj);
-    });
-  });
+    if(req.user){
+      User.findById(req.user._id).then(user =>{
+        Image.find({}).then(images => {
+          let newObj = { places, images, user};
+          // console.log(newObj)
+          res.json(newObj);
+        });
+      });
+    }else{
+      Image.find({}).then(images => {
+        let newObj = { places, images};
+        // console.log(newObj)
+        res.json(newObj);
+      });
+    }
+   
 });
 });
+
+
 
 router.get("/location/test", (req, res, next) => {
   GreenSpace.find({}).then(places => {
-    User.findById(req.user._id).then(user =>{
+    if(req.user){
+      User.findById(req.user._id).then(user =>{
+        Image.find({}).then(images => {
+          let newOb = { places, images};
+          res.json(newOb);
+        });
+      });
+    }else{
       Image.find({}).then(images => {
-        let newOb = { places, images,user };
-        
-
-        res.json(newOb);
-    })
-
-    });
-  });
+        let newObj = { places, images};
+        res.json(newObj);
+      });
+    }
+   
 });
+});
+
+
+
+
+
 
 router.get("/favourites/:userId", (req, res, next) => {
   const userId = req.user._id;

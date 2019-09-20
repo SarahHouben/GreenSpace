@@ -406,9 +406,17 @@ service.getDistanceMatrix(
           lat: {{ data.lat }},
         lng: {{ data.lng }}
   };
-   let img = `{{{ user.image }}}`
+   var img = `{{{ user.image }}}`
+   let defImg = '/images/default_user_image.png'
       //========================= style profile image with class ===================================
-        let styling = `<img class="popup-profile-image" src="${img}" >`
+        if(img.length !== 0){
+        var styling = `<img class="popup-profile-image" src="${img}" >`
+
+        }else{
+        var styling = `<img class="popup-profile-image" src="${defImg}" >`
+
+        }
+
   infoWindow.setPosition(pos);
   infoWindow.setContent(styling);
   infoWindow.open(map);
