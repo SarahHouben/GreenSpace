@@ -300,7 +300,7 @@
   )
   let service = new google.maps.DistanceMatrixService();
   navigator.geolocation.getCurrentPosition((loc)=>{
-  axios.get('http://localhost:3000/search/location/test').then((response) => {
+  axios.get('/search/location/test').then((response) => {
     var places = response.data.places;
     var images = response.data.images;
 

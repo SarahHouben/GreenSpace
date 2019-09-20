@@ -103,14 +103,12 @@ p {
     @media (max-width: 500px) {
       font-size: 1rem;
     }
+  }
 
+  @media (max-width: 350px) {
     .add-nav {
-      @media (max-width: 300px) {
-        font-size: 0.8rem;
-      }
+      font-size: 0.7rem !important;
     }
-
-
   }
 
 
@@ -537,6 +535,10 @@ footer {
 
   h1 {
     padding: 4rem;
+
+    @media (max-width: 500px) {
+      padding: 20px 0;
+    }
   }
 
   p {
@@ -632,12 +634,8 @@ footer {
   background: #fff;
   position: absolute;
   left: 10px;
-  // left: 35%;
-  // top: 22%;
   top: calc(100vh - 130px) !important;
   width: auto;
-
-  // max-width: 300px;
 
   h2 {
     font-size: 1.3rem !important;

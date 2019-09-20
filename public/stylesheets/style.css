@@ -75,9 +75,9 @@ p {
     @media (max-width: 500px) {
       .navbar a {
         font-size: 1rem; } }
-    @media (max-width: 300px) {
-      .navbar a .add-nav {
-        font-size: 0.8rem; } }
+  @media (max-width: 350px) {
+    .navbar .add-nav {
+      font-size: 0.7rem !important; } }
   .navbar ul {
     display: flex;
     flex-direction: row;
@@ -364,6 +364,9 @@ footer {
   text-align: center; }
   .index-text h1 {
     padding: 4rem; }
+    @media (max-width: 500px) {
+      .index-text h1 {
+        padding: 20px 0; } }
   .index-text p {
     padding: 0 20vw;
     padding-bottom: 1.2rem; }
