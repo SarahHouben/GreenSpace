@@ -64,7 +64,6 @@ p {
   flex-direction: row;
   align-items: center;
   padding: 0 10vw;
-  // background-color: #495669;
   background-color: #1c1c33;
   height: 90px;
 
@@ -104,6 +103,14 @@ p {
     @media (max-width: 500px) {
       font-size: 1rem;
     }
+
+    .add-nav {
+      @media (max-width: 300px) {
+        font-size: 0.8rem;
+      }
+    }
+
+
   }
 
 
@@ -131,13 +138,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
-  // position: absolute;
-  // bottom: 0;
   width: 100%;
   height: 60px;
-
-  // background-color: #495669;
   background-color: #1c1c33;
 
   p {
@@ -162,7 +164,6 @@ footer {
 .search-container {
   display: flex;
   flex-direction: column;
-  // height: calc(100vh - 150px);
   min-height: calc(100vh - 150px);
   background-color: rgba(193, 214, 111, 0.548)
 }
@@ -522,7 +523,7 @@ footer {
 /// ##############     INDEX       ##############  
 
 .index {
-  background-image: url("  https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568820044/GreenSpace/index_background.jpg");
+  background-image: url("/images/index_background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

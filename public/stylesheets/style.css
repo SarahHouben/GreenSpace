@@ -75,6 +75,9 @@ p {
     @media (max-width: 500px) {
       .navbar a {
         font-size: 1rem; } }
+    @media (max-width: 300px) {
+      .navbar a .add-nav {
+        font-size: 0.8rem; } }
   .navbar ul {
     display: flex;
     flex-direction: row;
@@ -351,7 +354,7 @@ footer {
   box-sizing: border-box; }
 
 .index {
-  background-image: url("  https://res.cloudinary.com/dmlqhwwfc/image/upload/v1568820044/GreenSpace/index_background.jpg");
+  background-image: url("/images/index_background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
