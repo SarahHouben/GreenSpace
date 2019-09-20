@@ -262,6 +262,23 @@ footer {
   box-sizing: border-box;
 }
 
+
+.nav-pop-image {
+  height: 20px;
+  margin-top: -3.5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 20px;
+  color: rgba(229, 250, 211, 0.986)
+}
+
+
+.nav-pop-image:hover {
+  transform: scale(1.1);
+  transition-duration: .3s;
+}
+
+
 .popup-button {
   background-color: #436623;
   border: none;
