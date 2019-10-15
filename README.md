@@ -24,6 +24,8 @@ To build the project, the overall idea was broken down into separate iterations,
 
 ## The Use of Google Maps APis
 
+![alt text](https://github.com/SarahHouben/GreenSpace/blob/master/public/images/Google_Maps_GreenSpace.png "Google Maps GreenSpace")
+
 1.	User types address in a search bar.  
 2.	Google Geo Coding API translates this address to latitude and longitude.
 3.	Google Maps JS API uses the location data to centers map and query DB for GreenSpaces in vicinity.
