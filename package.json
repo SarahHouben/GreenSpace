@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@google/maps": "^1.0.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "axis": "^1.0.0",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
